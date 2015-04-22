@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../css/app.css">
+<link rel="stylesheet" href="../css/bootstrap.css">
+<body ng-app="decisionMatrixApp">
+    <div class="container" ng-controller="MatrixController">
+        <button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')">Add Feature</button>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 first-col">
+                    <strong>Options</strong>
+                </div>
+                <div class="col-md-2 col-top text-center" ng-repeat="feature in features">
+                    <strong>{{feature.name}}</strong>
+                </div>
+            </div>
+            <div class="row" ng-repeat="option in options">
+                <div class="col-md-2 col-bottom-left">
+                    <strong>{{option.name}}</strong>
+                </div>
+                <div class="col-md-2 col-content" ng-repeat="feature in option.features">
+                    <input type="number" class="matrix-control" ng-model="feature.value" />
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="openOptionModal('sm')">Add Option</button>
+        <script type="text/ng-template" id="optionModalContent.html">
+            <form name="optionForm">
+                <div class="modal-header">
+                    <h3 class="modal-title">Add Option</h3>
+                </div>
+                <div class="modal-body">
+                    <label for="optionModalContent">Name:</label>
+                    <input type="text" class="form-control" required placeholder="Enter Name" ng-model="option.name">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" ng-click="ok()" ng-disabled="optionForm.$invalid">Save</button>
+                    <input class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel" />
+                </div>
+            </form>
+        </script>
+        <script type="text/ng-template" id="featureModalContent.html">
+            <form name="featureForm">
+                <div class="modal-header">
+                    <h3 class="modal-title">Add Feature</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="optionModalContent">Name:</label>
+                        <input type="text" class="form-control" required placeholder="Enter Name" ng-model="feature.name">
+                    </div>
+                    <div class="form-group">
+                        <label for="optionModalContent">Weight:</label>
+                        <input type="number" class="form-control" placeholder="Enter Weight" ng-model="feature.weight">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" ng-click="ok()" ng-disabled="featureForm.$invalid">Save</button>
+                    <input class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel" />
+                </div>
+            </form>
+        </script>
+    </div>
+    <script src="../lib/angular.min.js"></script>
+    <script src="../lib/angular-sanitize.min.js"></script>
+    <script src="../lib/ui-bootstrap-tpls-0.12.1.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/controllers/matrixcontroller.js"></script>
+    <script src="../js/controllers/optionmodalinstancecontroller.js"></script>
+    <script src="../js/controllers/featuremodalinstancecontroller.js"></script>
+</body>

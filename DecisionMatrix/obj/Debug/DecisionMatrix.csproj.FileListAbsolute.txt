@@ -1,0 +1,6 @@
+c:\users\miguel\documents\visual studio 2013\Projects\DecisionMatrix\DecisionMatrix\bin\DecisionMatrix.dll.config
+c:\users\miguel\documents\visual studio 2013\Projects\DecisionMatrix\DecisionMatrix\bin\DecisionMatrix.dll
+c:\users\miguel\documents\visual studio 2013\Projects\DecisionMatrix\DecisionMatrix\bin\DecisionMatrix.pdb
+c:\users\miguel\documents\visual studio 2013\Projects\DecisionMatrix\DecisionMatrix\obj\Debug\DecisionMatrix.csprojResolveAssemblyReference.cache
+c:\users\miguel\documents\visual studio 2013\Projects\DecisionMatrix\DecisionMatrix\obj\Debug\DecisionMatrix.dll
+c:\users\miguel\documents\visual studio 2013\Projects\DecisionMatrix\DecisionMatrix\obj\Debug\DecisionMatrix.pdb

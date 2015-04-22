@@ -1,0 +1,54 @@
+﻿.container {
+    padding-top: 20px;
+}
+
+.container-fluid {
+    margin: 7px auto 7px auto;
+}
+
+.first-col,
+.col-top {
+    border: 1px solid black;
+    height: 28px;
+    margin: -1px -1px auto auto;
+    padding-top: 2px;
+}
+
+.col-bottom-left,
+.col-content {
+    border: 1px solid black;
+    height: 34px;
+    margin: -1px -1px auto auto;
+    padding-top: 2px;
+}
+
+.first-col {
+    background-color: silver;
+}
+
+.col-top {
+    background-color: cyan;
+}
+
+.col-bottom-left {
+    background-color: darkgray;
+}
+
+.matrix-control {
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #555;
+  display: block;
+  font-size: 10px;
+  height: 24px;
+  line-height: 1.42857143;
+  padding: 6px 12px;
+  width: 100%;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
