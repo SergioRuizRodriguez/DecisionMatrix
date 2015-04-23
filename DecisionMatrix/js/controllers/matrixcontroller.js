@@ -26,7 +26,6 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         if ($scope.options.length) {
             $scope.addFeaturesToOptions($scope.feature);
         }
-        //this.feature = { 'name': null, 'value': 0, 'weight': null, 'visible': true };
         this.feature = new Feature(null, 0, null, true, false);
     };
 
@@ -42,7 +41,6 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         $scope.option.features = newFeature;
         $scope.options.push($scope.option);
         $scope.matrix.options = this.options;
-        //$scope.option = { 'name': null, 'features': null, 'visible': true };
         this.option = new Option(null, null, true);
     };
 
@@ -65,16 +63,25 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         $scope.options.splice(index, 1);
     };
 
+    $scope.toggleVisibilityFeature = function(index)
+    {
+        $scope.features[index].visible = false;
+        for(var option = 0; option < $scope.options.length; option ++)
+        {
+            $scope.options[option].features[index].visible = false;
+        }
+    }
+
     $scope.calculateSumsForOptions = function () {
-        for (var option = 0; option < $scope.options.lenght; option++) {
-            $scope.options[option].sum = calculateSumForFeatures(option);
+        for (var option = 0; option < $scope.options.length; option++) {
+            $scope.options[option].sum = $scope.calculateSumForFeatures(option);
         }
     };
 
     $scope.calculateSumForFeatures = function (option) {
         var featuresToSum = $scope.options[option].features;
         var sumOfFeatures = 0;
-        for (var feature = 0; feature < featuresToSum.lenght; feature++){
+        for (var feature = 0; feature < featuresToSum.length; feature++) {
             if(featuresToSum[feature].value)
             {
                 sumOfFeatures += featuresToSum[feature].value;
