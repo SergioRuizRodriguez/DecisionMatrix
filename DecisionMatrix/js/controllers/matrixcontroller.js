@@ -13,6 +13,8 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
 
     $scope.qualitativeOptions = [];
 
+    $scope.settings = {"minValue": 0, "maxValue": 5, "minAcceptedValue": 3};
+
     $scope.matrix = new DecisionMatrix("DecisionMatrix",null);
 
     $scope.addQualitativeOption = function () {
@@ -72,22 +74,56 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         }
     }
 
+    $scope.returnWiningOption = function () {
+        var maxWeight = 0;
+        for(var option = 0; option < $scope.options.length; option++)
+        {
+            var sumOfFeatures = $scope.calculateTotalWeightForFeatures(option);
+            if (maxWeight < sumOfFeatures)
+            {
+                maxWeight = sumOfFeatures;
+            }
+        }
+        return maxWeight;
+    };
+
     $scope.calculateSumsForOptions = function () {
         for (var option = 0; option < $scope.options.length; option++) {
-            $scope.options[option].sum = $scope.calculateSumForFeatures(option);
+            $scope.calculateSumForFeatures(option);
         }
     };
 
     $scope.calculateSumForFeatures = function (option) {
         var featuresToSum = $scope.options[option].features;
         var sumOfFeatures = 0;
-        for (var feature = 0; feature < featuresToSum.length; feature++) {
-            if(featuresToSum[feature].value)
-            {
-                sumOfFeatures += featuresToSum[feature].value;
+        if(featuresToSum)
+        {
+            for (var feature = 0; feature < featuresToSum.length; feature++) {
+                if(featuresToSum[feature].value)
+                {
+                    sumOfFeatures += featuresToSum[feature].value;
+                }
             }
+            $scope.options[option].sum = sumOfFeatures;
         }
         return sumOfFeatures;
+    };
+
+    $scope.calculateTotalWeightForFeatures = function (option) {
+        var featuresToSum = $scope.options[option].features;
+        var sumOfTotalWeightForFeatures = 0;
+        if (featuresToSum) {
+            for (var feature = 0; feature < featuresToSum.length; feature++) {
+                if (!featuresToSum[feature].weight) {
+                    featuresToSum[feature].weight = 1;
+                }
+                if (featuresToSum[feature].value) {
+                    sumOfTotalWeightForFeatures += featuresToSum[feature].value * featuresToSum[feature].weight;
+                }
+            }
+            $scope.options[option].weightedSum = sumOfTotalWeightForFeatures;
+        }
+        return sumOfTotalWeightForFeatures;
     };
 
     $scope.openOptionModal = function (size) {
