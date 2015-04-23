@@ -5,13 +5,10 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <body ng-app="decisionMatrixApp">
     <div class="container" ng-controller="MatrixController">
-<<<<<<< HEAD
         <h2>Decision Matrix</h2>
         <br>
-=======
-        <button type="button" class="btn btn-primary btn-xs" ng-click="calculateSumsForOptions()">Sum</button>
->>>>>>> 3a3021948c06d82b6c77ff7801bfa438d3406758
         <button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')">Add Feature</button>
+        <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')">Add Feature</button>-->
         <div class="container-fluid" ng-if="features.length > 0 || options.length > 0">
             <div class="row">
                 <div class="col-md-2 first-col">
@@ -20,7 +17,10 @@
                 <div class="col-md-2 col-top text-center" ng-repeat="feature in features" ng-show="feature.visible">
                     <strong>{{feature.name}}</strong>
                     <button type="button" class="close" aria-label="Close" ng-click="deleteFeature($index)"><span aria-hidden="true">&times;</span></button>
-                    <button type="button" class="close" aria-label="Close" ng-click="feature.visible = false"><span aria-hidden="true">-</span></button>
+                    <button type="button" class="close" aria-label="Close" ng-click="toggleVisibilityFeature($index)"><span aria-hidden="true">-</span></button>
+                </div>
+                <div class="col-md-2 col-top text-center" ng-show="features.length > 0">
+                    <strong>Sum</strong>
                 </div>
             </div>
             <div class="row" ng-repeat="option in options" ng-show="option.visible">
@@ -31,6 +31,9 @@
                 </div>
                 <div class="col-md-2 col-content" ng-repeat="feature in option.features" ng-show="feature.visible">
                     <input type="number" class="matrix-control" ng-model="feature.value" />
+                </div>
+                <div class="col-md-2 col-aggregate" ng-show="option.features > 0">
+                    <strong>Sum</strong>
                 </div>
             </div>
         </div>
