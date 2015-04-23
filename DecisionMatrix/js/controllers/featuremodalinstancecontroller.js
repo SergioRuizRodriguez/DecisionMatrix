@@ -4,7 +4,6 @@ decisionMatrixApp.controller('FeatureModalInstanceController', ['$scope', '$moda
 
     $scope.feature = feature;
     $scope.ok = function () {
-        console.log($scope.featureForm.$invalid);
         $modalInstance.close(this.feature);
     };
     $scope.cancel = function () {
