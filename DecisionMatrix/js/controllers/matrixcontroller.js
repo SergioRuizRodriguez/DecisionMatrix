@@ -165,4 +165,23 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
 
         });
     };
+
+    $scope.openSettingModal = function (size) {
+        var modalInstance = $modal.open({
+            templateUrl: 'settingModal.html',
+            controller: 'SettingModalInstanceController',
+            size: size,
+            resolve: {
+                settings: function () {
+                    return $scope.settings;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (settings) {
+            $scope.settings = settings;
+        }, function () {
+
+        });
+    };
 }]);
