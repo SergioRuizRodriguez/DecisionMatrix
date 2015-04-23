@@ -5,21 +5,27 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <body ng-app="decisionMatrixApp">
     <div class="container" ng-controller="MatrixController">
+        <h2>Decision Matrix</h2>
+        <br>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')">Add Feature</button>
-        <div class="container-fluid">
+        <div class="container-fluid" ng-if="features.length > 0 || options.length > 0">
             <div class="row">
                 <div class="col-md-2 first-col">
                     <strong>Options</strong>
                 </div>
-                <div class="col-md-2 col-top text-center" ng-repeat="feature in features">
+                <div class="col-md-2 col-top text-center" ng-repeat="feature in features" ng-show="feature.visible">
                     <strong>{{feature.name}}</strong>
+                    <button type="button" class="close" aria-label="Close" ng-click="deleteFeature($index)"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" aria-label="Close" ng-click="feature.visible = false"><span aria-hidden="true">-</span></button>
                 </div>
             </div>
-            <div class="row" ng-repeat="option in options">
+            <div class="row" ng-repeat="option in options" ng-show="option.visible">
                 <div class="col-md-2 col-bottom-left">
                     <strong>{{option.name}}</strong>
+                    <button type="button" class="close" aria-label="Close" ng-click="deleteOption($index)"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" aria-label="Close" ng-click="option.visible = false"><span aria-hidden="true">-</span></button>
                 </div>
-                <div class="col-md-2 col-content" ng-repeat="feature in option.features">
+                <div class="col-md-2 col-content" ng-repeat="feature in option.features" ng-show="feature.visible">
                     <input type="number" class="matrix-control" ng-model="feature.value" />
                 </div>
             </div>

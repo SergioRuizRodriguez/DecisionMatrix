@@ -68,9 +68,7 @@
     <Content Include="js\models\matrixmodel.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="js\models\optionmodel.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="js\models\optionmodel.js" />
     <Content Include="js\models\qualitativemodel.js" />
     <Content Include="lib\angular-sanitize.min.js" />
     <Content Include="lib\angular.min.js" />
