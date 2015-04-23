@@ -32,8 +32,8 @@
                 <div class="col-md-2 col-content" ng-repeat="feature in option.features" ng-show="feature.visible">
                     <input type="number" class="matrix-control" ng-model="feature.value" />
                 </div>
-                <div class="col-md-2 col-aggregate" ng-show="option.features > 0">
-                    <strong>Sum</strong>
+                <div class="col-md-2 col-content" ng-show="option.features.length > 0">
+                    <input type="number" readonly class="matrix-control" ng-model="option.sum" />
                 </div>
             </div>
         </div>

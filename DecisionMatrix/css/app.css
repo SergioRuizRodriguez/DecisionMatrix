@@ -28,13 +28,6 @@
     padding: 0 0 0 0 !important;
 }
 
-.col-aggregate {
-    border: 1px solid black;
-    height: 30px;
-    margin: -1px -1px auto auto;
-    padding: 0 0 0 0 !important;
-}
-
 .first-col {
     background-color: silver;
 }
