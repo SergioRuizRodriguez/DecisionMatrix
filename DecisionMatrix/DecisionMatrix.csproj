@@ -64,6 +64,7 @@
     <Content Include="js\controllers\featuremodalinstancecontroller.js" />
     <Content Include="js\controllers\matrixcontroller.js" />
     <Content Include="js\controllers\optionmodalinstancecontroller.js" />
+    <Content Include="js\controllers\settingmodalinstancecontroller.js" />
     <Content Include="js\models\featuremodel.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -85,6 +86,7 @@
   <ItemGroup>
     <Content Include="lib\angular.min.js.map" />
     <Content Include="lib\angular-sanitize.min.js.map" />
+    <Content Include="css\bootstrap.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
