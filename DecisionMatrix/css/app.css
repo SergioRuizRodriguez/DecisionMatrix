@@ -14,12 +14,18 @@
     padding-top: 2px;
 }
 
-.col-bottom-left,
-.col-content {
+.col-bottom-left {
     border: 1px solid black;
     height: 34px;
     margin: -1px -1px auto auto;
     padding-top: 2px;
+}
+
+.col-content {
+    border: 1px solid black;
+    height: 34px;
+    margin: -1px -1px auto auto;
+    padding: 0 0 0 0 !important;
 }
 
 .first-col {
@@ -37,12 +43,10 @@
 .matrix-control {
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   color: #555;
   display: block;
   font-size: 10px;
-  height: 24px;
+  height: 100%;
   line-height: 1.42857143;
   padding: 6px 12px;
   width: 100%;
@@ -51,4 +55,12 @@
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.form-validation input.ng-invalid.ng-dirty {
+    border: 2px solid #f57a64;
+}
+
+.form-validation input.ng-valid.ng-dirty {
+    border: 2px solid #78FA89;
 }
