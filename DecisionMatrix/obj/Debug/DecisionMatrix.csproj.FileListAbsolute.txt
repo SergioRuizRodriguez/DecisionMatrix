@@ -12,7 +12,6 @@ C:\Projects\DecisionMatrix\DecisionMatrix\obj\Debug\DecisionMatrix.dll
 C:\Projects\DecisionMatrix\DecisionMatrix\obj\Debug\DecisionMatrix.pdb
 C:\Users\ErickMartinez\Documents\GitProjects\DecisionMatrix\DecisionMatrix\bin\js\models\featuremodel.js
 C:\Users\ErickMartinez\Documents\GitProjects\DecisionMatrix\DecisionMatrix\bin\js\models\matrixmodel.js
-C:\Users\ErickMartinez\Documents\GitProjects\DecisionMatrix\DecisionMatrix\bin\js\models\optionmodel.js
 C:\Users\ErickMartinez\Documents\GitProjects\DecisionMatrix\DecisionMatrix\bin\DecisionMatrix.dll.config
 C:\Users\ErickMartinez\Documents\GitProjects\DecisionMatrix\DecisionMatrix\bin\DecisionMatrix.dll
 C:\Users\ErickMartinez\Documents\GitProjects\DecisionMatrix\DecisionMatrix\bin\DecisionMatrix.pdb
