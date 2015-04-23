@@ -86,8 +86,7 @@
   <ItemGroup>
     <Content Include="lib\angular.min.js.map" />
     <Content Include="lib\angular-sanitize.min.js.map" />
-    <None Include="Properties\PublishProfiles\OoqiaCalendar - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\OoqiaCalendar - Web Deploy.pubxml" />
+    <Content Include="css\bootstrap.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

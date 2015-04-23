@@ -18,3 +18,5 @@ C:\Users\ErickMartinez\Documents\GitProjects\DecisionMatrix\DecisionMatrix\bin\D
 C:\Users\ErickMartinez\Documents\GitProjects\DecisionMatrix\DecisionMatrix\obj\Debug\DecisionMatrix.csprojResolveAssemblyReference.cache
 C:\Users\ErickMartinez\Documents\GitProjects\DecisionMatrix\DecisionMatrix\obj\Debug\DecisionMatrix.dll
 C:\Users\ErickMartinez\Documents\GitProjects\DecisionMatrix\DecisionMatrix\obj\Debug\DecisionMatrix.pdb
+C:\Projects\DecisionMatrix\DecisionMatrix\bin\js\models\featuremodel.js
+C:\Projects\DecisionMatrix\DecisionMatrix\bin\js\models\matrixmodel.js
