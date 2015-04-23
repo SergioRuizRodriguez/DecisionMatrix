@@ -7,7 +7,7 @@
     <div class="container" ng-controller="MatrixController">
         <h2>Decision Matrix</h2>
         <br>
-        <button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')"><img src="../img/tools.png" alt="Tools setting"></button>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="openSettingModal('sm')"><img src="../img/tools.png" alt="Tools setting"></button>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')">Add Feature</button>
         <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')" ng-if="features.length > 0 || options.length > 0"><img src="../img/eye.png" alt="Eye show"></button>-->
         <div class="container-fluid" ng-if="features.length > 0 || options.length > 0">
@@ -30,8 +30,8 @@
                     <button type="button" class="close" aria-label="Close" ng-click="deleteOption($index)"><span aria-hidden="true">&times;</span></button>
                     <button type="button" class="close" aria-label="Close" ng-click="option.visible = false"><span aria-hidden="true">-</span></button>
                 </div>
-                <div class="col-md-2 col-content" ng-class="{'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-repeat="feature in option.features" ng-show="feature.visible">
-                    <input type="number" class="matrix-control" ng-model="feature.value" />
+                <div class="col-md-2 col-content matrix-validation" ng-class="{'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-repeat="feature in option.features" ng-show="feature.visible">
+                    <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-model="feature.value" />
                 </div>
                 <div class="col-md-2 col-content" ng-class="{'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-show="option.features.length > 0">
                     <input type="number" readonly class="matrix-control" value="{{calculateSumForFeatures($index)}}" />
@@ -78,20 +78,20 @@
         <script type="text/ng-template" id="settingModal.html">
             <form name="settingForm" class="form-validation">
                 <div class="modal-header">
-                    <h3 class="modal-title">Setting</h3>
+                    <h3 class="modal-title">Settings</h3>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="optionModalContent">Minimun value:</label>
-                        <input type="number" class="form-control" required placeholder="Enter Minimun value" ng-model="minValue">
+                        <input type="number" class="form-control" required placeholder="Enter Minimun value" ng-model="settings.minValue">
                     </div>
                     <div class="form-group">
                         <label for="optionModalContent">Maximun value:</label>
-                        <input type="number" class="form-control" placeholder="Enter Maximun value" ng-model="maxValue">
+                        <input type="number" class="form-control" required placeholder="Enter Maximun value" ng-model="settings.maxValue">
                     </div>
                     <div class="form-group">
                         <label for="optionModalContent">Minimun value for status:</label>
-                        <input type="number" class="form-control" placeholder="Enter Minimun value for status" ng-model="minAcceptedValue">
+                        <input type="number" class="form-control" required placeholder="Enter Minimun value for status" ng-model="settings.minAcceptedValue">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -112,4 +112,5 @@
     <script src="../js/models/optionmodel.js"></script>
     <script src="../js/models/matrixmodel.js"></script>
     <script src="../js/models/qualitativemodel.js"></script>
+    <script src="../js/controllers/settingmodalinstancecontroller.js"></script>
 </body>

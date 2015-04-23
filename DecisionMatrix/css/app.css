@@ -75,3 +75,7 @@
     background-color: #cbc5c5;
     color:#000;
 }
+
+.matrix-validation input.ng-invalid.ng-dirty {
+    border: 3px solid #f57a64;
+}
