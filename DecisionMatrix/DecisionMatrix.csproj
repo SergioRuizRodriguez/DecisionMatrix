@@ -62,6 +62,16 @@
     <Content Include="js\controllers\featuremodalinstancecontroller.js" />
     <Content Include="js\controllers\matrixcontroller.js" />
     <Content Include="js\controllers\optionmodalinstancecontroller.js" />
+    <Content Include="js\models\featuremodel.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="js\models\matrixmodel.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="js\models\optionmodel.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="js\models\qualitativemodel.js" />
     <Content Include="lib\angular-sanitize.min.js" />
     <Content Include="lib\angular.min.js" />
     <Content Include="lib\ui-bootstrap-tpls-0.12.1.js" />
