@@ -1,0 +1,25 @@
+﻿<script type="text/ng-template" id="settingModal.html">
+    <form name="settingForm" class="form-validation">
+        <div class="modal-header">
+            <h3 class="modal-title">Settings</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="optionModalContent">Minimun value:</label>
+                <input type="number" class="form-control" required placeholder="Enter Minimun value" ng-model="settings.minValue">
+            </div>
+            <div class="form-group">
+                <label for="optionModalContent">Maximun value:</label>
+                <input type="number" class="form-control" required placeholder="Enter Maximun value" ng-model="settings.maxValue">
+            </div>
+            <div class="form-group">
+                <label for="optionModalContent">Minimun value for status:</label>
+                <input type="number" class="form-control" required placeholder="Enter Minimun value for status" ng-model="settings.minAcceptedValue">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()" ng-disabled="settingForm.$invalid">Save</button>
+            <input class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel" />
+        </div>
+    </form>
+</script>

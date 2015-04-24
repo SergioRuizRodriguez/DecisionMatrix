@@ -1,0 +1,21 @@
+﻿<script type="text/ng-template" id="featureModalContent.html">
+    <form name="featureForm" class="form-validation">
+        <div class="modal-header">
+            <h3 class="modal-title">Add Feature</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="optionModalContent">Name:</label>
+                <input type="text" class="form-control" required placeholder="Enter Name" ng-model="feature.name">
+            </div>
+            <div class="form-group">
+                <label for="optionModalContent">Weight:</label>
+                <input type="number" class="form-control" placeholder="Enter Weight" ng-model="feature.weight">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()" ng-disabled="featureForm.$invalid">Save</button>
+            <input class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel" />
+        </div>
+    </form>
+</script>
