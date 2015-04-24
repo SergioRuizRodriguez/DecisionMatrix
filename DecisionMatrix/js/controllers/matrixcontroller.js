@@ -126,44 +126,25 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         return sumOfTotalWeightForFeatures;
     };
 
-    $scope.openOptionModal = function (size) {
-        var modalInstance = $modal.open({
-            templateUrl: 'optionModalContent.html',
-            controller: 'OptionModalInstanceController',
-            size: size,
-            resolve: {
-                option: function () {
-                    return $scope.option;
-                }
-            }
-        });
-
-        modalInstance.result.then(function (option) {
-            $scope.option = option;
-            $scope.addOption();
-        }, function () {
-
-        });
+    $scope.cancelOption = function () {
+        this.option = new Option(null, null, true);
     };
 
-    $scope.openFeatureModal = function (size) {
-        var modalInstance = $modal.open({
-            templateUrl: 'featureModalContent.html',
-            controller: 'FeatureModalInstanceController',
-            size: size,
-            resolve: {
-                feature: function () {
-                    return $scope.feature;
-                }
-            }
-        });
+    $scope.cancelFeature = function () {
+        this.feature = new Feature(null, 0, null, true, false);
+    };
 
-        modalInstance.result.then(function (feature) {
-            $scope.feature = feature;
-            $scope.addFeature();
-        }, function () {
+    $scope.toggled = function (open) {
+        
+    };
 
-        });
+    $scope.toggleDropdown = function ($event) {
+        if(!$event.srcElement.type) {
+            $event.preventDefault();
+            $event.stopPropagation();
+        } else {
+            $event.stopPropagation();
+        }
     };
 
     $scope.openSettingModal = function (size) {

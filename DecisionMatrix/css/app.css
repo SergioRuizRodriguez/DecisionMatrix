@@ -74,7 +74,7 @@
 .open-card-composer {
   border-radius: 0 0 3px 3px;
   color: #8c8c8c;
-  display: block;
+  display: inline;
   padding: 8px 10px;
   position: relative;
   -ms-flex: 0 0 auto;
@@ -84,4 +84,28 @@
   -ms-user-select: none;
   user-select: none;
   -webkit-box-flex: 0;
+}
+
+.btn {
+    padding: 6px 11px !important;
+}
+
+.open-option {
+  color: #fff;
+  padding: 8px 10px;
+  position: relative;
+}
+
+.open-option:hover {
+  color: #efe3e3;
+  text-decoration: none;
+}
+
+.open-option:focus {
+  color: #efe3e3;
+  text-decoration: none;
+}
+
+.option-label-color {
+    color: #000 !important;
 }

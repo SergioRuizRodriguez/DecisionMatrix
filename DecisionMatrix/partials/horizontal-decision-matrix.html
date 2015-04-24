@@ -1,6 +1,12 @@
 ﻿<div class="row">
     <div class="col-md-2 first-col">
-        <strong>Options</strong>
+        <strong class="dropdown" dropdown on-toggle="toggled(open)">
+            <a href class="dropdown-toggle open-option" dropdown-toggle>
+                +
+            </a>
+            <option-modal class="dropdown-menu"></option-modal>
+        </strong>
+        <strong class="col-md-offset-1">Options</strong>
     </div>
     <div class="col-md-2 col-top text-center" ng-repeat="feature in features" ng-show="feature.visible">
         <strong>{{feature.name}}</strong>
@@ -21,7 +27,8 @@
         <button type="button" class="close" aria-label="Close" ng-click="option.visible = false"><span aria-hidden="true">-</span></button>
     </div>
     <div class="col-md-2 col-content matrix-validation" ng-class="{'bg-success' : option.weightedSum == returnWiningOption(),'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-repeat="feature in option.features" ng-show="feature.visible">
-        <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-model="feature.value" />
+        <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-if="!feature.isqualitative" ng-model="feature.value" />
+
     </div>
     <div class="col-md-2 col-content" ng-class="{'bg-success' : option.weightedSum == returnWiningOption(),'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-show="option.features.length > 0">
         <input type="number" readonly class="matrix-control" value="{{calculateSumForFeatures(index)|number:2}}" />
