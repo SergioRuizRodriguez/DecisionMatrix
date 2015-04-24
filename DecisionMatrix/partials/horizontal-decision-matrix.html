@@ -20,8 +20,9 @@
         <button type="button" class="close" aria-label="Close" ng-click="deleteOption($index)"><span aria-hidden="true">&times;</span></button>
         <button type="button" class="close" aria-label="Close" ng-click="option.visible = false"><span aria-hidden="true">-</span></button>
     </div>
-    <div class="col-md-2 col-content matrix-validation" ng-class="{'bg-success' : option.weightedSum == returnWiningOption(),'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-repeat="feature in option.features" ng-show="feature.visible">
-        <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-model="feature.value" />
+    <div class="col-md-2 col-content matrix-validation" ng-class="{'bg-success' : option.weightedSum == returnWiningOption(),'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-repeat="feature in option.features" ng-show="feature.visible">         
+        <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-model="feature.value" ng-if="!feature.isqualitative" />
+        <select ng-model="feature.value" ng-if="feature.isqualitative" ng-options="opt as opt.name for opt in qualitativeOptions"></select>
     </div>
     <div class="col-md-2 col-content" ng-class="{'bg-success' : option.weightedSum == returnWiningOption(),'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-show="option.features.length > 0">
         <input type="number" readonly class="matrix-control" value="{{calculateSumForFeatures(index)|number:2}}" />

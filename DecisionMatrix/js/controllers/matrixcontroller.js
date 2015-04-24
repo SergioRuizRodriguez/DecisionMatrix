@@ -11,7 +11,7 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
 
     $scope.options = [];
 
-    $scope.qualitativeOptions = [];
+    $scope.qualitativeOptions = [new QualitativeOption('Good', 5), new QualitativeOption('Regular', 3), new QualitativeOption('Bad', 1)];
 
     $scope.settings = {"minValue": 0, "maxValue": 5, "minAcceptedValue": 3};
 
@@ -101,10 +101,14 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
             for (var feature = 0; feature < featuresToSum.length; feature++) {
                 if(featuresToSum[feature].value)
                 {
-                    sumOfFeatures += featuresToSum[feature].value;
+                    if (featuresToSum[feature].isqualitative) {
+                        sumOfFeatures += featuresToSum[feature].value.value;
+                    }
+                    else {
+                        sumOfFeatures += featuresToSum[feature].value;
+                    }
                 }
             }
-            $scope.options[option].sum = sumOfFeatures;
         }
         return sumOfFeatures;
     };
@@ -118,7 +122,12 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
                     featuresToSum[feature].weight = 1;
                 }
                 if (featuresToSum[feature].value) {
-                    sumOfTotalWeightForFeatures += featuresToSum[feature].value * featuresToSum[feature].weight;
+                    if (featuresToSum[feature].isqualitative) {
+                        sumOfTotalWeightForFeatures += featuresToSum[feature].value.value * featuresToSum[feature].weight;
+                    }
+                    else {
+                        sumOfTotalWeightForFeatures += featuresToSum[feature].value * featuresToSum[feature].weight;
+                    }
                 }
             }
             $scope.options[option].weightedSum = sumOfTotalWeightForFeatures;
