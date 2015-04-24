@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <meta charset="utf-8">
-<title></title>
+<title>Decision Matrix</title>
 <link rel="stylesheet" href="../css/app.css">
 <link rel="stylesheet" href="../css/bootstrap.css">
 <body ng-app="decisionMatrixApp">
@@ -10,96 +10,12 @@
         <button type="button" class="btn btn-primary btn-xs" ng-click="openSettingModal('sm')"><img src="../img/tools.png" alt="Tools setting"></button>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')">Add Feature</button>
         <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')" ng-if="features.length > 0 || options.length > 0"><img src="../img/eye.png" alt="Eye show"></button>-->
-        <div class="container-fluid" ng-if="features.length > 0 || options.length > 0">
-            <div class="row">
-                <div class="col-md-2 first-col">
-                    <strong>Options</strong>
-                </div>
-                <div class="col-md-2 col-top text-center" ng-repeat="feature in features" ng-show="feature.visible">
-                    <strong>{{feature.name}}</strong>
-                    <button type="button" class="close" aria-label="Close" ng-click="deleteFeature($index)"><span aria-hidden="true">&times;</span></button>
-                    <button type="button" class="close" aria-label="Close" ng-click="toggleVisibilityFeature($index)"><span aria-hidden="true">-</span></button>
-                </div>
-                <div class="col-md-2 col-top text-center" ng-show="features.length > 0">
-                    <strong>Sum</strong>
-                </div>
-            </div>
-            <div class="row" ng-repeat="option in options" ng-show="option.visible" ng-init="index = $index">
-                <div class="col-md-2 col-bottom-left" ng-class="{'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}">
-                    <strong>{{option.name}}</strong>
-                    <button type="button" class="close" aria-label="Close" ng-click="deleteOption($index)"><span aria-hidden="true">&times;</span></button>
-                    <button type="button" class="close" aria-label="Close" ng-click="option.visible = false"><span aria-hidden="true">-</span></button>
-                </div>
-                <div class="col-md-2 col-content matrix-validation" ng-class="{'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-repeat="feature in option.features" ng-show="feature.visible">
-                    <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-model="feature.value" />
-                </div>
-                <div class="col-md-2 col-content" ng-class="{'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-show="option.features.length > 0">
-                    <input type="number" readonly class="matrix-control" value="{{calculateSumForFeatures($index)}}" />
-                </div>
-            </div>
+        <div class="container-fluid" ng-if="features.length > 0 || options.length > 0" horizontal-decision-matrix>
         </div>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openOptionModal('sm')">Add Option</button>
-        <script type="text/ng-template" id="optionModalContent.html">
-            <form name="optionForm" class="form-validation">
-                <div class="modal-header">
-                    <h3 class="modal-title">Add Option</h3>
-                </div>
-                <div class="modal-body">
-                    <label for="optionModalContent">Name:</label>
-                    <input type="text" class="form-control" required placeholder="Enter Name" ng-model="option.name">
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" ng-click="ok()" ng-disabled="optionForm.$invalid">Save</button>
-                    <input class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel" />
-                </div>
-            </form>
-        </script>
-        <script type="text/ng-template" id="featureModalContent.html">
-            <form name="featureForm" class="form-validation">
-                <div class="modal-header">
-                    <h3 class="modal-title">Add Feature</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="optionModalContent">Name:</label>
-                        <input type="text" class="form-control" required placeholder="Enter Name" ng-model="feature.name">
-                    </div>
-                    <div class="form-group">
-                        <label for="optionModalContent">Weight:</label>
-                        <input type="number" class="form-control" placeholder="Enter Weight" ng-model="feature.weight">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" ng-click="ok()" ng-disabled="featureForm.$invalid">Save</button>
-                    <input class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel" />
-                </div>
-            </form>
-        </script>
-        <script type="text/ng-template" id="settingModal.html">
-            <form name="settingForm" class="form-validation">
-                <div class="modal-header">
-                    <h3 class="modal-title">Settings</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="optionModalContent">Minimun value:</label>
-                        <input type="number" class="form-control" required placeholder="Enter Minimun value" ng-model="settings.minValue">
-                    </div>
-                    <div class="form-group">
-                        <label for="optionModalContent">Maximun value:</label>
-                        <input type="number" class="form-control" required placeholder="Enter Maximun value" ng-model="settings.maxValue">
-                    </div>
-                    <div class="form-group">
-                        <label for="optionModalContent">Minimun value for status:</label>
-                        <input type="number" class="form-control" required placeholder="Enter Minimun value for status" ng-model="settings.minAcceptedValue">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" ng-click="ok()" ng-disabled="settingForm.$invalid">Save</button>
-                    <input class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel" />
-                </div>
-            </form>
-        </script>
+        <option-modal></option-modal>
+        <feature-modal></feature-modal>
+        <settings-modal></settings-modal>
     </div>
     <script src="../lib/angular.min.js"></script>
     <script src="../lib/angular-sanitize.min.js"></script>
@@ -113,4 +29,6 @@
     <script src="../js/models/matrixmodel.js"></script>
     <script src="../js/models/qualitativemodel.js"></script>
     <script src="../js/controllers/settingmodalinstancecontroller.js"></script>
+    <script src="../js/components/directives/modals.js"></script>
+    <script src="../js/components/directives/decisionmatrix.js"></script>
 </body>
