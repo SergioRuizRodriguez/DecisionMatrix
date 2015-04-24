@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="css\app.css" />
     <Content Include="img\eye.png" />
+    <Content Include="img\list.png" />
     <Content Include="img\tools.png" />
     <Content Include="js\app.js" />
     <Content Include="js\components\directives\decisionmatrix.js" />
@@ -66,6 +67,7 @@
     <Content Include="js\controllers\featuremodalinstancecontroller.js" />
     <Content Include="js\controllers\matrixcontroller.js" />
     <Content Include="js\controllers\optionmodalinstancecontroller.js" />
+    <Content Include="js\controllers\qualitativemodalinstancecontroller.js" />
     <Content Include="js\controllers\settingmodalinstancecontroller.js" />
     <Content Include="js\models\featuremodel.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

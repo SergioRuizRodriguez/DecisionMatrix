@@ -8,14 +8,60 @@
         <h2>Decision Matrix</h2>
         <br>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openSettingModal('sm')"><img src="../img/tools.png" alt="Tools setting"></button>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="openSettingModal('sm')"><img src="../img/list.png" alt="List qualitative"></button>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')">Add Feature</button>
         <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')" ng-if="features.length > 0 || options.length > 0"><img src="../img/eye.png" alt="Eye show"></button>-->
         <div class="container-fluid" ng-if="features.length > 0 || options.length > 0" horizontal-decision-matrix>
+                <div class="col-md-2 col-top text-center" ng-show="features.length > 0">
+                    <strong>Weigth</strong>
+                </div>
+                </div>
+                <div class="col-md-2 col-content" ng-class="{'bg-success' : option.weightedSum == returnWiningOption(),'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-show="option.features.length > 0">
+                    <input type="number" readonly class="matrix-control" value="{{calculateTotalWeightForFeatures(index)|number:2}}" />
         </div>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openOptionModal('sm')">Add Option</button>
         <option-modal></option-modal>
         <feature-modal></feature-modal>
         <settings-modal></settings-modal>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="feature.isqualitative"> Qualitative
+                        </label>
+                    </div>
+        </script>
+        <script type="text/ng-template" id="qualitativeModal.html">
+            <div class="modal-header">
+                <h3 class="modal-title">Qualitatives</h3>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li ng-repeat="qualitativeOption in qualitativeOptions">
+                        <a ng-click="qualitativeOption.name = name">{{ name }}</a>
+                    </li>
+                </ul>
+                <form name="newQualitativeForm" class="form-validation" ng-if="newQualitative">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Add Option</h3>
+                    </div>
+                    <div class="modal-body">
+                        <label for="qualitativeModalContent">Name:</label>
+                        <input type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="qualitative.name">
+                    </div>
+                    <div class="form-group">
+                        <label for="qualitativeModalContent">Value:</label>
+                        <input type="number" class="form-control" required min="{{settings.minValue}}" max="{{settings.maxValue}}" placeholder="Enter Value" ng-model="qualitative.value">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" ng-click="addQualitativeOption()" ng-disabled="newQualitativeForm.$invalid">Add</button>
+                        <input class="btn btn-warning" type="button" ng-click="newQualitative = false" value="Cancel" />
+                    </div>
+                </form>
+                <a class="open-card-composer js-open-card-composer" href="#" ng-click="newQualitative = true">Add a qualitative…</a>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="ok()">OK</button>
+                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            </div>
     </div>
     <script src="../lib/angular.min.js"></script>
     <script src="../lib/angular-sanitize.min.js"></script>

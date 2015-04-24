@@ -184,4 +184,23 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
 
         });
     };
+
+    $scope.openQualitativeModal = function (size) {
+        var modalInstance = $modal.open({
+            templateUrl: 'qualitativeModal.html',
+            controller: 'QualitativeModalInstanceController',
+            size: size,
+            resolve: {
+                parameterQualitative: function () {
+                    return [$scope.qualitativeOptions, $scope.settings];
+                }
+            }
+        });
+
+        modalInstance.result.then(function (qualitativeOptions) {
+            $scope.qualitativeOptions = qualitativeOptions;
+        }, function () {
+
+        });
+    };
 }]);
