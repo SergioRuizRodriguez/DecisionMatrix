@@ -7,15 +7,17 @@
     <div class="container" ng-controller="MatrixController">
         <h2>Decision Matrix</h2>
         <br>
-        <button type="button" class="btn btn-primary btn-xs" ng-click="openSettingModal('sm')"><img src="img/tools.png" alt="Tools setting"></button>
-        <button type="button" class="btn btn-primary btn-xs" ng-click="openQualitativeModal('sm')"><img src="img/list.png" alt="List qualitative"></button>
-        <button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')">Add Feature</button>
+        <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openSettingModal('sm')"><img src="img/tools.png" alt="Tools setting"></button>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="openQualitativeModal('sm')"><img src="img/list.png" alt="List qualitative"></button>-->
+        <span class="dropdown" dropdown on-toggle="toggled(open)">
+            <a href class="dropdown-toggle open-card-composer" dropdown-toggle>
+                Add Feature…
+            </a>
+            <feature-modal class="dropdown-menu"></feature-modal>
+        </span>
         <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')" ng-if="features.length > 0 || options.length > 0"><img src="../img/eye.png" alt="Eye show"></button>-->
-        <div class="container-fluid" ng-if="features.length > 0 || options.length > 0" horizontal-decision-matrix>
+        <div class="container-fluid" horizontal-decision-matrix>
         </div>
-        <button type="button" class="btn btn-primary btn-xs" ng-click="openOptionModal('sm')">Add Option</button>
-        <option-modal></option-modal>
-        <feature-modal></feature-modal>
         <settings-modal></settings-modal>
         <qualitative-modal></qualitative-modal>
     </div>
