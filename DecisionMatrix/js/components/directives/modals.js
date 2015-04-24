@@ -1,4 +1,11 @@
-﻿decisionMatrixApp.directive('settingsModal', function () {
+﻿decisionMatrixApp.directive('qualitativeModal', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'modal-qualitative.html'
+    }
+});
+
+decisionMatrixApp.directive('settingsModal', function () {
     return {
         restrict: 'E',
         templateUrl: 'modal-settings.html'

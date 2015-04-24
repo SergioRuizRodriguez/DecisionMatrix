@@ -11,144 +11,21 @@
         <button type="button" class="btn btn-primary btn-xs" ng-click="openQualitativeModal('sm')"><img src="../img/list.png" alt="List qualitative"></button>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')">Add Feature</button>
         <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')" ng-if="features.length > 0 || options.length > 0"><img src="../img/eye.png" alt="Eye show"></button>-->
-        <div class="container-fluid" ng-if="features.length > 0 || options.length > 0">
-            <div class="row">
-                <div class="col-md-2 first-col">
-                    <strong>Options</strong>
-                </div>
-                <div class="col-md-2 col-top text-center" ng-repeat="feature in features" ng-show="feature.visible">
-                    <strong>{{feature.name}}</strong>
-                    <button type="button" class="close" aria-label="Close" ng-click="deleteFeature($index)"><span aria-hidden="true">&times;</span></button>
-                    <button type="button" class="close" aria-label="Close" ng-click="toggleVisibilityFeature($index)"><span aria-hidden="true">-</span></button>
-                </div>
-                <div class="col-md-2 col-top text-center" ng-show="features.length > 0">
-                    <strong>Sum</strong>
-                </div>
-                <div class="col-md-2 col-top text-center" ng-show="features.length > 0">
-                    <strong>Weigth</strong>
-                </div>
-            </div>
-            <div class="row" ng-repeat="option in options" ng-show="option.visible" ng-init="index = $index">
-                <div class="col-md-2 col-bottom-left" ng-class="{'bg-success' : option.weightedSum == returnWiningOption(), 'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}">
-                    <strong>{{option.name}}</strong>
-                    <button type="button" class="close" aria-label="Close" ng-click="deleteOption($index)"><span aria-hidden="true">&times;</span></button>
-                    <button type="button" class="close" aria-label="Close" ng-click="option.visible = false"><span aria-hidden="true">-</span></button>
-                </div>
-                <div class="col-md-2 col-content matrix-validation" ng-class="{'bg-success' : option.weightedSum == returnWiningOption(),'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-repeat="feature in option.features" ng-show="feature.visible">
-                    <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-model="feature.value" />
-                </div>
-                <div class="col-md-2 col-content" ng-class="{'bg-success' : option.weightedSum == returnWiningOption(),'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-show="option.features.length > 0">
-                    <input type="number" readonly class="matrix-control" value="{{calculateSumForFeatures(index)|number:2}}" />
-                </div>
-                <div class="col-md-2 col-content" ng-class="{'bg-success' : option.weightedSum == returnWiningOption(),'row-matrix-par' : index%2 == 0, 'row-matrix-inpar' : index%2 != 0}" ng-show="option.features.length > 0">
-                    <input type="number" readonly class="matrix-control" value="{{calculateTotalWeightForFeatures(index)|number:2}}" />
-                </div>
-            </div>
+        <div class="container-fluid" ng-if="features.length > 0 || options.length > 0" horizontal-decision-matrix>
         </div>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openOptionModal('sm')">Add Option</button>
-        <script type="text/ng-template" id="optionModalContent.html">
-            <form name="optionForm" class="form-validation">
-                <div class="modal-header">
-                    <h3 class="modal-title">Add Option</h3>
-                </div>
-                <div class="modal-body">
-                    <label for="optionModalContent">Name:</label>
-                    <input type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="option.name">
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" ng-click="ok()" ng-disabled="optionForm.$invalid">Save</button>
-                    <input class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel" />
-                </div>
-            </form>
-        </script>
-        <script type="text/ng-template" id="featureModalContent.html">
-            <form name="featureForm" class="form-validation">
-                <div class="modal-header">
-                    <h3 class="modal-title">Add Feature</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="featureModalContent">Name:</label>
-                        <input type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="feature.name">
-                    </div>
-                    <div class="form-group">
-                        <label for="featureModalContent">Weight:</label>
-                        <input type="number" class="form-control" placeholder="Enter Weight" ng-model="feature.weight">
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" ng-model="feature.isqualitative"> Qualitative
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" ng-click="ok()" ng-disabled="featureForm.$invalid">Save</button>
-                    <input class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel" />
-                </div>
-            </form>
-        </script>
-        <script type="text/ng-template" id="settingModal.html">
-            <form name="settingForm" class="form-validation">
-                <div class="modal-header">
-                    <h3 class="modal-title">Settings</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="settingModalContent">Minimun value:</label>
-                        <input type="number" class="form-control" autofocus required placeholder="Enter Minimun value" ng-model="settings.minValue">
-                    </div>
-                    <div class="form-group">
-                        <label for="settingModalContent">Maximun value:</label>
-                        <input type="number" class="form-control" required placeholder="Enter Maximun value" ng-model="settings.maxValue">
-                    </div>
-                    <div class="form-group">
-                        <label for="settingModalContent">Minimun value for status:</label>
-                        <input type="number" class="form-control" required placeholder="Enter Minimun value for status" ng-model="settings.minAcceptedValue">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" ng-click="ok()" ng-disabled="settingForm.$invalid">Save</button>
-                    <input class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel" />
-                </div>
-            </form>
-        </script>
-        <script type="text/ng-template" id="qualitativeModal.html">
-            <div class="modal-header">
-                <h3 class="modal-title">Qualitatives</h3>
-            </div>
-            <div class="modal-body">
-                <ul>
-                    <li ng-repeat="qualitativeOption in qualitativeOptions">{{qualitativeOption.name}}
-                </ul>
-                <form name="newQualitativeForm" class="form-validation" ng-if="newQualitative">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="qualitativeModalContent">Name:</label>
-                            <input type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="qualitative.name">
-                        </div>
-                        <div class="form-group">
-                            <label for="qualitativeModalContent">Value:</label>
-                            <input type="number" class="form-control" required min="{{settings.minValue}}" max="{{settings.maxValue}}" placeholder="Enter Value" ng-model="qualitative.value">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" ng-click="addQualitativeOption()" ng-disabled="newQualitativeForm.$invalid">Add</button>
-                        <input class="btn btn-default" type="button" ng-click="closeNewQualitative()" value="Cancel" />
-                    </div>
-                </form>
-                <a class="open-card-composer js-open-card-composer" href="#" ng-click="newQualitative = true">Add a qualitative…</a>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" ng-click="ok()">OK</button>
-                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-            </div>
-        </script>
+        <option-modal></option-modal>
+        <feature-modal></feature-modal>
+        <settings-modal></settings-modal>
+        <qualitative-modal></qualitative-modal>
     </div>
     <script src="../lib/angular.min.js"></script>
     <script src="../lib/angular-sanitize.min.js"></script>
     <script src="../lib/ui-bootstrap-tpls-0.12.1.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/controllers/matrixcontroller.js"></script>
+    <script src="../js/components/directives/decisionmatrix.js"></script>
+    <script src="../js/components/directives/modals.js"></script>
     <script src="../js/controllers/optionmodalinstancecontroller.js"></script>
     <script src="../js/controllers/featuremodalinstancecontroller.js"></script>
     <script src="../js/models/featuremodel.js"></script>

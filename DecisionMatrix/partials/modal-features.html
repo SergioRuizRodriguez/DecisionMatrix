@@ -5,12 +5,17 @@
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <label for="optionModalContent">Name:</label>
-                <input type="text" class="form-control" required placeholder="Enter Name" ng-model="feature.name">
+                <label for="featureModalContent">Name:</label>
+                <input type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="feature.name">
             </div>
             <div class="form-group">
-                <label for="optionModalContent">Weight:</label>
+                <label for="featureModalContent">Weight:</label>
                 <input type="number" class="form-control" placeholder="Enter Weight" ng-model="feature.weight">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="feature.isqualitative"> Qualitative
+                </label>
             </div>
         </div>
         <div class="modal-footer">
