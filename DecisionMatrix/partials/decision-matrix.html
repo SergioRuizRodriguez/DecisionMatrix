@@ -8,7 +8,7 @@
         <h2>Decision Matrix</h2>
         <br>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openSettingModal('sm')"><img src="../img/tools.png" alt="Tools setting"></button>
-        <button type="button" class="btn btn-primary btn-xs" ng-click="openSettingModal('sm')"><img src="../img/list.png" alt="List qualitative"></button>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="openQualitativeModal('sm')"><img src="../img/list.png" alt="List qualitative"></button>
         <button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')">Add Feature</button>
         <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')" ng-if="features.length > 0 || options.length > 0"><img src="../img/eye.png" alt="Eye show"></button>-->
         <div class="container-fluid" ng-if="features.length > 0 || options.length > 0">
@@ -118,25 +118,22 @@
             </div>
             <div class="modal-body">
                 <ul>
-                    <li ng-repeat="qualitativeOption in qualitativeOptions">
-                        <a ng-click="qualitativeOption.name = name">{{ name }}</a>
-                    </li>
+                    <li ng-repeat="qualitativeOption in qualitativeOptions">{{qualitativeOption.name}}
                 </ul>
                 <form name="newQualitativeForm" class="form-validation" ng-if="newQualitative">
-                    <div class="modal-header">
-                        <h3 class="modal-title">Add Option</h3>
-                    </div>
                     <div class="modal-body">
-                        <label for="qualitativeModalContent">Name:</label>
-                        <input type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="qualitative.name">
-                    </div>
-                    <div class="form-group">
-                        <label for="qualitativeModalContent">Value:</label>
-                        <input type="number" class="form-control" required min="{{settings.minValue}}" max="{{settings.maxValue}}" placeholder="Enter Value" ng-model="qualitative.value">
+                        <div class="form-group">
+                            <label for="qualitativeModalContent">Name:</label>
+                            <input type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="qualitative.name">
+                        </div>
+                        <div class="form-group">
+                            <label for="qualitativeModalContent">Value:</label>
+                            <input type="number" class="form-control" required min="{{settings.minValue}}" max="{{settings.maxValue}}" placeholder="Enter Value" ng-model="qualitative.value">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" ng-click="addQualitativeOption()" ng-disabled="newQualitativeForm.$invalid">Add</button>
-                        <input class="btn btn-warning" type="button" ng-click="newQualitative = false" value="Cancel" />
+                        <input class="btn btn-default" type="button" ng-click="closeNewQualitative()" value="Cancel" />
                     </div>
                 </form>
                 <a class="open-card-composer js-open-card-composer" href="#" ng-click="newQualitative = true">Add a qualitative…</a>
@@ -159,4 +156,5 @@
     <script src="../js/models/matrixmodel.js"></script>
     <script src="../js/models/qualitativemodel.js"></script>
     <script src="../js/controllers/settingmodalinstancecontroller.js"></script>
+    <script src="../js/controllers/qualitativemodalinstancecontroller.js"></script>
 </body>

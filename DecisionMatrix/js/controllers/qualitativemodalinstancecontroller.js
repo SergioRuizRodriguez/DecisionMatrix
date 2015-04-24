@@ -3,9 +3,9 @@
 decisionMatrixApp.controller('QualitativeModalInstanceController', ['$scope', '$modalInstance', 'parameterQualitative', function ($scope, $modalInstance, parameterQualitative) {
 
     $scope.newQualitative = false;
-    $scope.settings = settings;
+    $scope.qualitativeOptions = angular.copy(parameterQualitative[0]);
+    $scope.settings = parameterQualitative[1];
     $scope.qualitative = new QualitativeOption(null, null);
-    $scope.qualitativeOptions = qualitativeOptions;
     $scope.ok = function () {
         $modalInstance.close(this.qualitativeOptions);
     };
@@ -18,4 +18,7 @@ decisionMatrixApp.controller('QualitativeModalInstanceController', ['$scope', '$
         $scope.qualitative = new QualitativeOption(null, null);
         $scope.newQualitative = false;
     };
+    $scope.closeNewQualitative = function () {
+        $scope.newQualitative = false;
+    }
 }]);
