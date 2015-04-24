@@ -7,20 +7,32 @@
     <div class="container" ng-controller="MatrixController">
         <h2>Decision Matrix</h2>
         <br>
-        <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openSettingModal('sm')"><img src="img/tools.png" alt="Tools setting"></button>
-        <button type="button" class="btn btn-primary btn-xs" ng-click="openQualitativeModal('sm')"><img src="img/list.png" alt="List qualitative"></button>-->
-        <span class="dropdown" dropdown on-toggle="toggled(open)">
-            <a href class="dropdown-toggle open-card-composer" dropdown-toggle>
-                Add Feature…
-            </a>
-            <feature-modal class="dropdown-menu"></feature-modal>
-        </span>
-        <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')" ng-if="features.length > 0 || options.length > 0"><img src="../img/eye.png" alt="Eye show"></button>-->
-        <div class="container-fluid" horizontal-decision-matrix>
+        <div class="btn-group col-md-offset-8" dropdown is-open="statusList.isopen">
+            <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
+                <img src="img/list.png" alt="List qualitative"><span class="caret"></span>
+            </button>
+            <qualitative-modal class="dropdown-menu" role="menu"></qualitative-modal>
         </div>
-        <settings-modal></settings-modal>
-        <qualitative-modal></qualitative-modal>
-    </div>
+        <div class="btn-group col-md-offset-0" dropdown is-open="statusSettings.isopen">
+            <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
+                <img src="img/settings.png" alt="Tools setting">
+                <span class="caret"></span>
+            </button>
+            <settings-modal class="dropdown-menu" role="menu"></settings-modal>
+        </div>
+            <br>
+            <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openSettingModal('sm')"><img src="img/tools.png" alt="Tools setting"></button>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="openQualitativeModal('sm')"><img src="img/list.png" alt="List qualitative"></button>-->
+            <span class="dropdown" dropdown on-toggle="toggled(open)">
+                <a href class="dropdown-toggle open-card-composer" dropdown-toggle>
+                    Add Feature…
+                </a>
+                <feature-modal class="dropdown-menu"></feature-modal>
+            </span>
+            <!--<button type="button" class="btn btn-primary btn-xs" ng-click="openFeatureModal('sm')" ng-if="features.length > 0 || options.length > 0"><img src="../img/eye.png" alt="Eye show"></button>-->
+            <div class="container-fluid" horizontal-decision-matrix>
+            </div>
+        </div>
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-sanitize.min.js"></script>
     <script src="lib/ui-bootstrap-tpls-0.12.1.js"></script>

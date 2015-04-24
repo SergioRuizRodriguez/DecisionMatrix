@@ -2,6 +2,7 @@
 
 decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function ($scope, $modal) {
 
+    $scope.newQualitative = false;
     $scope.feature = new Feature(null, 0, null, true, false);
     $scope.option = new Option(null, null, true);
 
@@ -21,6 +22,7 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         var newQualitativeOption = angular.copy(this.qualitative);
         $scope.qualitativeOptions.push(newQualitativeOption);
         $scope.qualitative = new QualitativeOption(null, null);
+        $scope.newQualitative = false;
     };
 
     $scope.addFeature = function () {
@@ -156,41 +158,7 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         }
     };
 
-    $scope.openSettingModal = function (size) {
-        var modalInstance = $modal.open({
-            templateUrl: 'settingModal.html',
-            controller: 'SettingModalInstanceController',
-            size: size,
-            resolve: {
-                settings: function () {
-                    return $scope.settings;
-                }
-            }
-        });
-
-        modalInstance.result.then(function (settings) {
-            $scope.settings = settings;
-        }, function () {
-
-        });
-    };
-
-    $scope.openQualitativeModal = function (size) {
-        var modalInstance = $modal.open({
-            templateUrl: 'qualitativeModal.html',
-            controller: 'QualitativeModalInstanceController',
-            size: size,
-            resolve: {
-                parameterQualitative: function () {
-                    return [$scope.qualitativeOptions, $scope.settings];
-                }
-            }
-        });
-
-        modalInstance.result.then(function (qualitativeOptions) {
-            $scope.qualitativeOptions = qualitativeOptions;
-        }, function () {
-
-        });
+    $scope.closeNewQualitative = function () {
+        $scope.newQualitative = false;
     };
 }]);

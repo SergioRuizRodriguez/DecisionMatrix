@@ -109,3 +109,7 @@
 .option-label-color {
     color: #000 !important;
 }
+
+.form-dropdown-menu {
+    width: 250px;
+}
