@@ -8,7 +8,8 @@
 
 .first-col,
 .col-top {
-    border: 1px solid #000;
+    background-color: #4345bd;
+    color: #fff;
     height: 28px;
     margin: -1px -1px auto auto;
     padding-top: 2px;
@@ -16,7 +17,6 @@
 
 .col-bottom-left {
     background-color: transparent;
-    border: 1px solid #000;
     height: 30px;
     margin: -1px -1px auto auto;
     padding-top: 2px;
@@ -28,19 +28,10 @@
     padding: 0 0 0 0 !important;
 }
 
-.first-col {
-    background-color: #fff;
-}
-
-.col-top {
-    background-color: #4345bd;
-    color: #fff;
-}
-
 .matrix-control {
   background-color: transparent;
   background-image: none;
-  border: 1px solid #000;
+  border: none;
   display: block;
   font-size: 12px;
   height: 100%;
@@ -67,8 +58,8 @@
 }
 
 .row-matrix-inpar {
-    background-color: #696868;
-    color:#fff;
+    background-color: #827676;
+    color:#000;
 }
 
 .row-matrix-par {
@@ -78,4 +69,19 @@
 
 .matrix-validation input.ng-invalid.ng-dirty {
     border: 3px solid #f57a64;
+}
+
+.open-card-composer {
+  border-radius: 0 0 3px 3px;
+  color: #8c8c8c;
+  display: block;
+  padding: 8px 10px;
+  position: relative;
+  -ms-flex: 0 0 auto;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-flex: 0;
 }
