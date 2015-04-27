@@ -1,12 +1,6 @@
 ﻿<div class="row  row-eq-height row-matrix-divider">
     <div class="col-md-2 first-col">
-        <strong class="dropdown" dropdown on-toggle="toggled(open)">
-            <a href class="dropdown-toggle open-option" dropdown-toggle ng-click="focusOptionModal=true">
-                +
-            </a>
-            <option-modal class="dropdown-menu"></option-modal>
-        </strong>
-        <strong class="col-md-offset-1">Options</strong>
+        <strong class="col-md-offset-1">Alternatives</strong>
     </div>
     <div class="col-md-2 col-top text-center" ng-repeat="option in options" ng-show="option.visible" ng-class="{'bg-winner' : (returnWiningOption() > 0) ? option.weightedSum == returnWiningOption() : false}">
         <strong>{{option.name}}</strong>
