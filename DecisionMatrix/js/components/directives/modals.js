@@ -1,27 +1,27 @@
 ﻿decisionMatrixApp.directive('qualitativeModal', function () {
     return {
         restrict: 'E',
-        templateUrl: 'modal-qualitative.html'
+        templateUrl: 'partials/modal-qualitative.html'
     }
 });
 
 decisionMatrixApp.directive('settingsModal', function () {
     return {
         restrict: 'E',
-        templateUrl: 'modal-settings.html'
+        templateUrl: 'partials/modal-settings.html'
     }
 });
 
 decisionMatrixApp.directive('featureModal', function () {
     return {
         restrict: 'E',
-        templateUrl: 'modal-features.html'
+        templateUrl: 'partials/modal-features.html'
     }
 });
 
 decisionMatrixApp.directive('optionModal', function () {
     return {
         restrict: 'E',
-        templateUrl: 'modal-options.html'
+        templateUrl: 'partials/modal-options.html'
     }
 });

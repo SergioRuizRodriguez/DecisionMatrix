@@ -6,25 +6,39 @@
     margin: 7px auto 7px auto;
 }
 
+@font-face {
+ font-family: "CFPunkisFont";
+ src: url("../font/CFPunkisnotDead-Regular.ttf");
+}
+
+.font-title {
+    font-family: "CFPunkisFont";
+}
+
 .first-col,
 .col-top {
-    background-color: #4345bd;
-    color: #fff;
+    background-color: #C94F26;
+    color: #FFF;
     height: 28px;
-    margin: -1px -1px auto auto;
+    margin: -1px -1px auto 5px;
     padding-top: 2px;
 }
 
 .col-bottom-left {
-    background-color: transparent;
+    background-color: #FFF;
+    border: 1px #f1eeee solid;
+    color:#000;
     height: 30px;
-    margin: -1px -1px auto auto;
+    margin: -1px -1px auto 5px;
     padding-top: 2px;
 }
 
 .col-content {
+    background-color: #FFF;
+    border: 1px #f1eeee solid;
+    color:#000;
     height: 30px;
-    margin: -1px -1px auto auto;
+    margin: -1px -1px auto 5px;
     padding: 0 0 0 0 !important;
 }
 
@@ -58,13 +72,22 @@
 }
 
 .row-matrix-inpar {
-    background-color: #827676;
+    background-color: #FFF;
     color:#000;
 }
 
 .row-matrix-par {
-    background-color: #cbc5c5;
+    background-color: #e9e9e9;
     color:#000;
+}
+
+.row-matrix-aggregate {
+    background-color: rgba(0, 0, 0, .075);
+    color: #000;
+}
+
+.row-matrix-divider {
+    margin: auto auto 5px auto;
 }
 
 .matrix-validation input.ng-invalid.ng-dirty {
@@ -112,4 +135,9 @@
 
 .form-dropdown-menu {
     width: 250px;
+}
+
+.bg-winner {
+    background-color: #AACC39;
+    color: #fff;
 }
