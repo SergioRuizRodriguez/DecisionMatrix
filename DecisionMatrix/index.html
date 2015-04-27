@@ -24,7 +24,7 @@
         <div class="container-fluid" vertical-decision-matrix>
         </div>
         <span class="dropdown" dropdown on-toggle="toggled(open)">
-            <a href class="dropdown-toggle open-card-composer" dropdown-toggle>
+            <a href class="dropdown-toggle open-card-composer" dropdown-toggle ng-click="focusFeatureModal=true">
                 Add Feature…
             </a>
             <feature-modal class="dropdown-menu"></feature-modal>
@@ -37,6 +37,7 @@
     <script src="js/controllers/matrixcontroller.js"></script>
     <script src="js/components/directives/decisionmatrix.js"></script>
     <script src="js/components/directives/modals.js"></script>
+    <script src="js/components/directives/utilities.js"></script>
     <script src="js/controllers/optionmodalinstancecontroller.js"></script>
     <script src="js/controllers/featuremodalinstancecontroller.js"></script>
     <script src="js/models/featuremodel.js"></script>

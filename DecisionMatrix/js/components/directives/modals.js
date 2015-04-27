@@ -1,4 +1,6 @@
-﻿decisionMatrixApp.directive('qualitativeModal', function () {
+﻿'use strict';
+
+decisionMatrixApp.directive('qualitativeModal', function () {
     return {
         restrict: 'E',
         templateUrl: 'partials/modal-qualitative.html'
