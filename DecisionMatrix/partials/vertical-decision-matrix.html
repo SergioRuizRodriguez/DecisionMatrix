@@ -25,7 +25,7 @@
         <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-model="option.features[indexFeature].value" ng-if="!option.features[indexFeature].isqualitative" />
     </div>
 </div>
-<div class="row row-matrix-divider" ng-show="settings.DisplaySum">
+<div class="row row-eq-height row-matrix-divider" ng-show="settings.DisplaySum">
     <div class="col-md-2 col-bottom-left">
         <strong>Sum</strong>
     </div>
@@ -33,7 +33,7 @@
         <input type="number" readonly class="matrix-control" value="{{calculateSumForFeatures($index)|number:2}}" />
     </div>
 </div>
-<div class="row row-matrix-divider" ng-show="settings.DisplayWeight">
+<div class="row row-eq-height row-matrix-divider" ng-show="settings.DisplayWeight">
     <div class="col-md-2 col-bottom-left">
         <strong>Weigth</strong>
     </div>
