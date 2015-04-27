@@ -4,7 +4,7 @@
             <label for="featureModalContent">Name:</label>
                 <input type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="feature.name">
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-if="">
             <label for="featureModalContent">Weight:</label>
             <input type="number" class="form-control" placeholder="Enter Weight" ng-model="feature.weight" />
         </div>
@@ -13,6 +13,7 @@
                 <input type="checkbox" ng-model="feature.isqualitative" /> Qualitative
             </label>
         </div>
+        <a class="open-card-composer js-open-card-composer" href="#" ng-click="newQualitative = true">Advance…</a>
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" ng-click="addFeature()" ng-disabled="featureForm.$invalid">Add</button>

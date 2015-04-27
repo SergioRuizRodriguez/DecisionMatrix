@@ -14,7 +14,7 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
 
     $scope.qualitativeOptions = [new QualitativeOption('Good', 5), new QualitativeOption('Regular', 3), new QualitativeOption('Bad', 1)];
 
-    $scope.settings = {"minValue": 0, "maxValue": 5, "minAcceptedValue": 3};
+    $scope.settings = { "minValue": 0, "maxValue": 5, "minAcceptedValue": 3, "DisplaySum": 0, "DisplayWeight": 0 };
 
     $scope.matrix = new DecisionMatrix("DecisionMatrix",null);
 

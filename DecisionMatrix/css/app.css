@@ -19,27 +19,30 @@
 .col-top {
     background-color: #C94F26;
     color: #FFF;
-    height: 28px;
-    margin: -1px -1px auto 5px;
+    height: auto%;
+    margin: -1px -1px 0 5px;
     padding-top: 2px;
+    word-wrap: break-word;
 }
 
 .col-bottom-left {
     background-color: #FFF;
     border: 1px #f1eeee solid;
     color:#000;
-    height: 30px;
-    margin: -1px -1px auto 5px;
+    height: auto;
+    margin: -1px -1px 0 5px;
     padding-top: 2px;
+    word-wrap: break-word;
 }
 
 .col-content {
     background-color: #FFF;
     border: 1px #f1eeee solid;
     color:#000;
-    height: 30px;
-    margin: -1px -1px auto 5px;
+    height: auto;
+    margin: -1px -1px 0 5px;
     padding: 0 0 0 0 !important;
+    word-wrap: break-word;
 }
 
 .matrix-control {
@@ -140,4 +143,11 @@
 .bg-winner {
     background-color: #AACC39;
     color: #fff;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
 }
