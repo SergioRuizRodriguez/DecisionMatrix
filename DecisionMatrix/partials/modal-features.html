@@ -2,7 +2,7 @@
     <div class="modal-body" ng-click="toggleDropdown($event)">
         <div class="form-group">
             <label for="featureModalContent">Name:</label>
-                <input type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="feature.name">
+            <input type="text" class="form-control" autofocus required placeholder="Enter Name" focus-me="focusFeatureModal" ng-model="feature.name">
         </div>
         <div class="form-group" ng-if="">
             <label for="featureModalContent">Weight:</label>
