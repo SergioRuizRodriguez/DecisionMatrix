@@ -33,7 +33,7 @@
     color:#000;
     height: auto;
     margin: -1px -1px 0 5px;
-    padding: 2px 0 0 0 !important;
+    padding: 2px 0 0 4px !important;
     padding-top: 2px;
     word-wrap: break-word;
 }
@@ -201,4 +201,13 @@
 
 .tooltip {
     min-width:400px;
+}
+
+.btn-head {
+    width: auto;
+    margin-top: 20px;
+}
+
+.line-logo {
+    border-left: 2px solid #000;
 }
