@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" href="css/bootstrap.css">
 <body ng-app="decisionMatrixApp">
-    <div class="container" ng-controller="MatrixController">
+    <div class="container-principal container" ng-controller="MatrixController">
         <img src="//ooqia.com/wp-content/uploads/2015/02/logoprueba1.png" width="150" alt="Ooqia">
         <div class="btn-group col-md-offset-8" dropdown is-open="statusList.isopen">
             <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
@@ -22,15 +22,17 @@
         <h2>DECISION MATRIX</h2>
         <br>
         <span class="dropdown" dropdown on-toggle="toggled(open)">
-            <a href class="dropdown-toggle open-card-composer" dropdown-toggle ng-click="focusOptionModal=true">
+            <a href class="dropdown-toggle col-md-2 open-card-composer" dropdown-toggle ng-click="focusOptionModal=true">
                 Add Alternative...
             </a>
             <option-modal class="dropdown-menu"></option-modal>
         </span>
+        <br>
+        <br>
         <div class="container-fluid" vertical-decision-matrix>
         </div>
         <span class="dropdown" dropdown on-toggle="toggled(open)">
-            <a href class="dropdown-toggle open-card-composer" dropdown-toggle ng-click="focusFeatureModal=true">
+            <a href class="dropdown-toggle col-md-2 open-card-composer" dropdown-toggle ng-click="focusFeatureModal=true">
                 Add Criteria…
             </a>
             <feature-modal class="dropdown-menu"></feature-modal>

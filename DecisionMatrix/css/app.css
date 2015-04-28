@@ -1,5 +1,6 @@
-﻿.container {
-    padding-top: 20px;
+﻿.container-principal {
+    padding-top: 20px!important;
+    margin-left: 5%!important;
 }
 
 .container-fluid {
@@ -98,7 +99,43 @@
 }
 
 .open-card-composer {
-  border-radius: 0 0 3px 3px;
+  border: 1px rgba(202, 199, 199, 0.46) solid;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(202, 199, 199, 0.46);
+  color: #8c8c8c;
+  display: inline;
+  padding: 8px 10px;
+  position: relative;
+  margin-left: 5px;
+  -ms-flex: 0 0 auto;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-flex: 0;
+}
+
+.open-card-composer:hover  {
+  border: 1px rgb(151, 151, 151) solid;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgb(151, 151, 151);
+  color: #fff;
+  display: inline;
+  padding: 8px 10px;
+  position: relative;
+  margin-left: 5px;
+  -ms-flex: 0 0 auto;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-flex: 0;
+}
+
+.popup-open-advanced-composer {
+  border-radius: 3px 3px 3px 3px;
   color: #8c8c8c;
   display: inline;
   padding: 8px 10px;
