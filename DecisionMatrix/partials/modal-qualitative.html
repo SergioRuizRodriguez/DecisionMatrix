@@ -1,6 +1,7 @@
 ﻿<div class="form-dropdown-menu modal-body" ng-click="toggleDropdown($event)">
+    <strong>Qualitative Options list</strong>
     <ul>
-        <li ng-repeat="qualitativeOption in qualitativeOptions">{{qualitativeOption.name}}
+        <li ng-repeat="qualitativeOption in qualitativeOptions | orderBy: '-value' ">{{qualitativeOption.name}} - ({{qualitativeOption.value}})
     </ul>
     <form name="newQualitativeForm" class="form-validation" ng-if="newQualitative">
         <div class="modal-body">

@@ -16,7 +16,7 @@
     </div>
     <div class="col-md-2 col-content matrix-validation" ng-class="{'bg-winner' : (returnWiningOption() > 0) ? option.weightedSum == returnWiningOption() : false}" ng-repeat="option in options" ng-show="option.visible">
         <select class="matrix-control" ng-model="option.features[indexFeature].value" ng-if="option.features[indexFeature].isqualitative" ng-options="opt as opt.name for opt in qualitativeOptions"></select>
-        <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-model="option.features[indexFeature].value" ng-if="!option.features[indexFeature].isqualitative" />
+        <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-model="option.features[indexFeature].value" ng-if="!option.features[indexFeature].isqualitative"/>
     </div>
 </div>
 <div class="row row-eq-height row-matrix-divider" ng-show="settings.DisplaySum">
