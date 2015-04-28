@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" href="css/bootstrap.css">
 <body ng-app="decisionMatrixApp">
-    <div class="container-principal container" ng-controller="MatrixController">
+    <div class="container-principal container-fluid" ng-controller="MatrixController">
         <img src="//ooqia.com/wp-content/uploads/2015/02/logoprueba1.png" width="150" alt="Ooqia">
         <div class="btn-group col-md-offset-8" dropdown is-open="statusList.isopen">
             <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
@@ -31,6 +31,7 @@
         <br>
         <div class="container-fluid" vertical-decision-matrix>
         </div>
+        <br>
         <span class="dropdown" dropdown on-toggle="toggled(open)">
             <a href class="dropdown-toggle open-card-composer" dropdown-toggle ng-click="focusFeatureModal=true" tooltip-append-to-body="true" tooltip-placement="right" tooltip="Create a new Criteria to evaluate in the decision matrix. It corresponds to the rows in the table.">
                 Add Criteria…
