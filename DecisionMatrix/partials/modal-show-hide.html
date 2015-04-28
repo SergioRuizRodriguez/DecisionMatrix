@@ -1,20 +1,24 @@
 ﻿<div class="form-dropdown-menu modal-body" ng-click="toggleDropdown($event)" ng-init="showFeature = false; showOption = false">
-    <a class="open-card-composer js-open-card-composer" href="#" ng-click="showOption = ((showOption) ? false : true)">Show|Hide Alternatives…</a>
-    <div class="checkbox" ng-repeat="option in options" ng-if=" showoption">
-        <strong>Show|Hide</strong>
-        <br>
-        <label>
-            <input type="checkbox" ng-model="option.visible" /> {{option.name}}
-        </label>
-    </div>
-    <br>
-    <br>
-    <a class="open-card-composer js-open-card-composer" href="#" ng-click="showFeature = ((showFeature) ? false : true)">Show|Hide Criterias…</a>
-    <div class="checkbox" ng-repeat="feature in features" ng-if=" showFeature">
-        <strong>Show|Hide</strong>
-        <br>
-        <label>
-            <input type="checkbox" ng-model="feature.visible" /> {{feature.name}}
-        </label>
-    </div>
+    <a class="open-card-composer js-open-card-composer" href="#" ng-click="showOption = ((showOption) ? false : true)">Alternatives…</a>
+    <form name="newShowOptionsForm" class="form-validation" ng-if="showOption">
+        <div class="checkbox" ng-repeat="option in options">
+            <strong>Alternatives</strong>
+            <br>
+            <label>
+                <input type="checkbox" ng-model="option.visible" /> {{option.name}}
+            </label>
+        </div>
+    </form>
+    <br />
+    <br />
+    <a class="open-card-composer js-open-card-composer" href="#" ng-click="showFeature = ((showFeature) ? false : true)">Criterias…</a>
+    <form name="newShowFeaturesForm" class="form-validation" ng-if="showFeature">
+        <div class="checkbox" ng-repeat="feature in features">
+            <strong>Criterias</strong>
+            <br>
+            <label>
+                <input type="checkbox" ng-model="feature.visible" /> {{feature.name}}
+            </label>
+        </div>
+    </form>
 </div>
