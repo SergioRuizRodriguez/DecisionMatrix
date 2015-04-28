@@ -7,24 +7,24 @@
     <div class="container-principal container-fluid" ng-controller="MatrixController">
         <div class="row">
             <div class="col-md-2">
-                <img src="//ooqia.com/wp-content/uploads/2015/02/logoprueba1.png" width="150" alt="Ooqia">
+        <img src="//ooqia.com/wp-content/uploads/2015/02/logoprueba1.png" width="150" alt="Ooqia">
             </div>
             <div class="col-md-3">
                 <h2>DECISION MATRIX</h2>
             </div>
             <div class="btn-group btn-head col-xs-offset-4" dropdown is-open="statusList.isopen">
-                <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
-                    <img src="img/list.png" alt="List qualitative" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Shows the qualitative options so that you can add your own."><span class="caret"></span>
-                </button>
-                <qualitative-modal class="dropdown-menu" role="menu"></qualitative-modal>
-            </div>
+            <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
+                <img src="img/list.png" alt="List qualitative" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Shows the qualitative options so that you can add your own."><span class="caret"></span>
+            </button>
+            <qualitative-modal class="dropdown-menu" role="menu"></qualitative-modal>
+        </div>
             <div class="btn-group btn-head col-xs-offset-0" dropdown is-open="statusSettings.isopen">
-                <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
-                    <img src="img/settings.png" alt="Tools setting" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="You can change the range of the accepted values in the decision matrix, and show or hide sum and weight aggregates.">
-                    <span class="caret"></span>
-                </button>
-                <settings-modal class="dropdown-menu" role="menu"></settings-modal>
-            </div>
+            <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
+                <img src="img/settings.png" alt="Tools setting" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Settings">
+                <span class="caret"></span>
+            </button>
+            <settings-modal class="dropdown-menu" role="menu"></settings-modal>
+        </div>
             </div>
         <br>
         <span class="dropdown" dropdown on-toggle="toggled(open)">
