@@ -188,3 +188,7 @@
   display: -ms-flexbox;
   display:         flex;
 }
+
+.tooltip {
+    min-width:400px;
+}
