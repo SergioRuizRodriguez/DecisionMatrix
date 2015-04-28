@@ -210,4 +210,12 @@
 
 .line-logo {
     border-left: 2px solid #000;
+    height: 40px;
+    padding: 5px 0 0 10px; 
+    margin-left: -15px;
+}
+
+.logo-matrix {
+    width: auto !important;
+    padding-right: 0 !important;
 }
