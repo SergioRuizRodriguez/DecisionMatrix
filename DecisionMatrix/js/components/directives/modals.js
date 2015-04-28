@@ -1,5 +1,13 @@
 ﻿'use strict';
 
+
+decisionMatrixApp.directive('showHideModal', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/modal-show-hide.html'
+    }
+});
+
 decisionMatrixApp.directive('qualitativeModal', function () {
     return {
         restrict: 'E',
