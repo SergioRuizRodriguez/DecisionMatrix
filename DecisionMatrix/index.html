@@ -5,21 +5,27 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <body ng-app="decisionMatrixApp">
     <div class="container-principal container-fluid" ng-controller="MatrixController">
+        <div class="row">
+            <div class="col-md-2">
         <img src="//ooqia.com/wp-content/uploads/2015/02/logoprueba1.png" width="150" alt="Ooqia">
-        <div class="btn-group col-md-offset-8" dropdown is-open="statusList.isopen">
+            </div>
+            <div class="col-md-3">
+                <h2>DECISION MATRIX</h2>
+            </div>
+            <div class="btn-group btn-head col-xs-offset-4" dropdown is-open="statusList.isopen">
             <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
                 <img src="img/list.png" alt="List qualitative" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Shows the qualitative options so that you can add your own."><span class="caret"></span>
             </button>
             <qualitative-modal class="dropdown-menu" role="menu"></qualitative-modal>
         </div>
-        <div class="btn-group col-md-offset-0" dropdown is-open="statusSettings.isopen">
+            <div class="btn-group btn-head col-xs-offset-0" dropdown is-open="statusSettings.isopen">
             <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
                 <img src="img/settings.png" alt="Tools setting" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Settings">
                 <span class="caret"></span>
             </button>
             <settings-modal class="dropdown-menu" role="menu"></settings-modal>
         </div>
-        <h2>DECISION MATRIX</h2>
+            </div>
         <br>
         <span class="dropdown" dropdown on-toggle="toggled(open)">
             <a href class="dropdown-toggle open-card-composer" dropdown-toggle ng-click="focusOptionModal=true" tooltip-append-to-body="true" tooltip-placement="right" tooltip="Create a new Alternative to evaluate in the decision matrix. It corresponds to the columns in the table.">
