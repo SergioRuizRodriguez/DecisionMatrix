@@ -203,6 +203,14 @@
     min-width:400px;
 }
 
+.animate.ng-enter,
+.animate.ng-leave {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+}
+
 .btn-head {
     width: auto;
     margin-top: 20px;
@@ -218,4 +226,12 @@
 .logo-matrix {
     width: auto !important;
     padding-right: 0 !important;
+}
+.animate.ng-enter,
+.animate.ng-leave.ng-leave-active {
+  opacity:0;
+}
+.animate.ng-leave,
+.animate.ng-enter.ng-enter-active {
+  opacity:1;
 }

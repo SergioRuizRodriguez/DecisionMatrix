@@ -1,3 +1,3 @@
 'use strict';
 
-var decisionMatrixApp = angular.module('decisionMatrixApp',['ui.bootstrap']);
+var decisionMatrixApp = angular.module('decisionMatrixApp',['ui.bootstrap','ngAnimate']);
