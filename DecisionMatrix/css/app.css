@@ -48,6 +48,10 @@
     word-wrap: break-word;
 }
 
+.col-status {
+    height: 40px;
+}
+
 .matrix-control {
   background-color: transparent;
   background-image: none;

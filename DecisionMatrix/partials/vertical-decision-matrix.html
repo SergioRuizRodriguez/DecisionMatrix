@@ -36,10 +36,10 @@
     </div>
 </div>
 <div class="row row-eq-height row-matrix-divider" ng-show="settings.DisplayStatus">
-    <div class="col-md-2 col-bottom-left">
+    <div class="col-md-2 col-bottom-left col-status">
         <strong>Status</strong>
     </div>
-    <div class="col-md-2 col-bottom-left" ng-class="{'bg-winner' : (returnWiningOption() > 0) ? option.weightedSum == returnWiningOption() : false}" ng-repeat="option in options" ng-show="option.visible">
+    <div class="col-md-2 col-bottom-left col-status text-center" ng-class="{'bg-winner' : (returnWiningOption() > 0) ? option.weightedSum == returnWiningOption() : false}" ng-repeat="option in options" ng-show="option.visible">
         <i class="fa" ng-class="{'fa-check-circle': option.weightedSum >= settings.minAcceptedValue,'fa-times-circle': option.weightedSum < settings.minAcceptedValue}"></i>
     </div>
 </div>
