@@ -19,7 +19,7 @@
 
 .first-col,
 .col-top {
-    background-color: #C94F26;
+    background-color: #cc623f;
     color: #FFF;
     height: auto%;
     margin: -1px -1px 0 5px;
@@ -46,10 +46,6 @@
     margin: -1px -1px 0 5px;
     padding: 0 0 0 0 !important;
     word-wrap: break-word;
-}
-
-.col-status {
-    height: 40px;
 }
 
 .matrix-control {
@@ -248,4 +244,22 @@
 
 .second-line-min {
     margin: 5px auto auto auto;
+}
+
+.status-approved {
+    font-size: 2em !important;
+    color: #fff;
+}
+
+.status-cancel {
+    font-size: 2em !important;
+    color: #f00;
+}
+
+.dropdown-button {
+    font-size: 1.5em !important;
+}
+
+.icon-matrix {
+    font-size: 1.1em !important;
 }
