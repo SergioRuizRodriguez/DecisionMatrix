@@ -1,5 +1,5 @@
 ﻿<div class="form-dropdown-menu modal-body" ng-click="toggleDropdown($event)" ng-init="showFeature = false; showOption = false">
-    <a class="open-card-composer js-open-card-composer" href="#" ng-click="showOption = ((showOption) ? false : true)">Alternatives…</a>
+    <a class="open-card-composer js-open-card-composer" href="#" ng-click="showOption = ((showOption) ? false : true)" ng-show="options.length > 0">Alternatives…</a>
     <form name="newShowOptionsForm" class="form-validation" ng-if="showOption">
         <div class="checkbox" ng-repeat="option in options">
             <strong>Alternatives</strong>
@@ -11,7 +11,7 @@
     </form>
     <br />
     <br />
-    <a class="open-card-composer js-open-card-composer" href="#" ng-click="showFeature = ((showFeature) ? false : true)">Criterias…</a>
+    <a class="open-card-composer js-open-card-composer" href="#" ng-click="showFeature = ((showFeature) ? false : true)" ng-show="features.length > 0">Criterias…</a>
     <form name="newShowFeaturesForm" class="form-validation" ng-if="showFeature">
         <div class="checkbox" ng-repeat="feature in features">
             <strong>Criterias</strong>
