@@ -1,24 +1,24 @@
 ﻿<div class="form-dropdown-menu modal-body" ng-click="toggleDropdown($event)" ng-init="showFeature = false; showOption = false">
-    <a class="open-card-composer js-open-card-composer" href="#" ng-click="showOption = ((showOption) ? false : true)" ng-show="options.length > 0">Alternatives…</a>
-    <form name="newShowOptionsForm" class="form-validation" ng-if="showOption">
-        <div class="checkbox" ng-repeat="option in options">
-            <strong>Alternatives</strong>
-            <br>
-            <label>
-                <input type="checkbox" ng-model="option.visible" /> {{option.name}}
-            </label>
-        </div>
-    </form>
-    <br>
-    <br>
-    <a class="open-card-composer js-open-card-composer" href="#" ng-click="showFeature = ((showFeature) ? false : true)" ng-show="features.length > 0">Criterias…</a>
-    <form name="newShowFeaturesForm" class="form-validation" ng-if="showFeature">
-        <div class="checkbox" ng-repeat="feature in features">
-            <strong>Criterias</strong>
-            <br>
-            <label>
-                <input type="checkbox" ng-model="feature.visible" /> {{feature.name}}
-            </label>
-        </div>
-    </form>
+    <div class="row">
+        <a class="open-card-composer js-open-card-composer" href="#" ng-click="showOption = ((showOption) ? false : true)" ng-show="options.length > 0">Alternatives…</a>
+        <form name="newShowOptionsForm" class="form-validation container-fluid" ng-if="showOption">
+            <strong class="second-line">Alternatives</strong>
+            <div class="checkbox" ng-repeat="option in options">
+                <label>
+                    <input type="checkbox" ng-model="option.visible" /> {{option.name}}
+                </label>
+            </div>
+        </form>
+    </div>
+    <div class="row second-line" ng-class="{'second-line-min' : showOption}">
+        <a class="open-card-composer js-open-card-composer" href="#" ng-click="showFeature = ((showFeature) ? false : true)" ng-show="features.length > 0">Criterias…</a>
+        <form name="newShowFeaturesForm" class="form-validation container-fluid" ng-if="showFeature">
+            <strong class="second-line">Criterias</strong>
+            <div class="checkbox" ng-repeat="feature in features">
+                <label>
+                    <input type="checkbox" ng-model="feature.visible" /> {{feature.name}}
+                </label>
+            </div>
+        </form>
+    </div>
 </div>

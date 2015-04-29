@@ -227,11 +227,21 @@
     width: auto !important;
     padding-right: 0 !important;
 }
+
 .animate.ng-enter,
 .animate.ng-leave.ng-leave-active {
   opacity:0;
 }
+
 .animate.ng-leave,
 .animate.ng-enter.ng-enter-active {
   opacity:1;
+}
+
+.second-line {
+    margin: 20px auto auto auto;
+}
+
+.second-line-min {
+    margin: 5px auto auto auto;
 }
