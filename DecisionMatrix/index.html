@@ -15,21 +15,22 @@
             </div>
             <div class="btn-group btn-head col-xs-offset-4" dropdown is-open="statusShow.isopen">
                 <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle ng-show="options.length > 0 || features.length > 0">
-                    <img src="img/eye.png" alt="Eye show" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Show|Hide Alternatives and Criterias"><span class="caret"></span>
+                    <i class="fa fa-eye" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Show|Hide Alternatives and Criterias"></i>
+                    <span class="caret"></span>
                 </button>
                 <show-hide-modal class="dropdown-menu" role="menu"></show-hide-modal>
             </div>
             <div class="btn-group btn-head col-xs-offset-0" dropdown is-open="statusList.isopen">
                 <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
-                    <img src="img/list.png" alt="List qualitative" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Shows the qualitative options so that you can add your own."><span class="caret"></span>
+                    <i class="fa fa-list-alt" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Shows the qualitative options so that you can add your own."></i>
+                    <span class="caret"></span>
                 </button>
                 <qualitative-modal class="dropdown-menu" role="menu"></qualitative-modal>
             </div>
-            <div class="btn-group btn-head col-xs-offset-0" dropdown is-open="statusSettings.isopen">
+            <div class="btn-group btn-head col-xs-offset-0" dropdown is-open="statusSettings.isopen" />
                 <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
-                    <i class="fa fa-cog" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Settings"></i>
-                <!--<img src="img/settings.png" alt="Tools setting" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Settings">-->
-                <span class="caret"></span>
+                    <i class="fa fa-cog" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Settings" /></i>
+                    <span class="caret"></span>
                 </button>
                 <settings-modal class="dropdown-menu" role="menu"></settings-modal>
             </div>
