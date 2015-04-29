@@ -3,6 +3,7 @@
 <title></title>
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
 <body ng-app="decisionMatrixApp">
     <div class="container-principal container-fluid" ng-controller="MatrixController">
         <div class="row">
@@ -26,7 +27,8 @@
             </div>
             <div class="btn-group btn-head col-xs-offset-0" dropdown is-open="statusSettings.isopen">
                 <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle>
-                <img src="img/settings.png" alt="Tools setting" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Settings">
+                    <i class="fa fa-cog" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Settings"></i>
+                <!--<img src="img/settings.png" alt="Tools setting" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Settings">-->
                 <span class="caret"></span>
                 </button>
                 <settings-modal class="dropdown-menu" role="menu"></settings-modal>
