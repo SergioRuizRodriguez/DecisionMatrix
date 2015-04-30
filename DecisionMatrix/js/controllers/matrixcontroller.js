@@ -3,10 +3,6 @@
 decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function ($scope, $modal) {
 
     $scope.newQualitative = false;
-    $scope.feature = new Feature(null, 0, null, true, false);
-    $scope.option = new Option(null, null, true);
-
-    $scope.qualitative = new QualitativeOption(null, null);
 
     $scope.features = [];
 
@@ -22,36 +18,49 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         "DisplayWeight": false, 'DisplayStatus': true
     };
 
-    $scope.matrix = new DecisionMatrix("DecisionMatrix",null);
-
-    $scope.addQualitativeOption = function () {
-        var newQualitativeOption = angular.copy(this.qualitative);
+    $scope.addQualitativeOption = function (qualitative) {
+        var newQualitativeOption = new QualitativeOption(qualitative.name, qualitative.value);
         $scope.qualitativeOptions.push(newQualitativeOption);
-        $scope.qualitative = new QualitativeOption(null, null);
+        $scope.cleanQualitativeForm();
         $scope.newQualitative = false;
     };
 
-    $scope.addFeature = function () {
-        $scope.features.push($scope.feature);
-        if ($scope.options.length) {
-            $scope.addFeaturesToOptions($scope.feature);
-        }
-        this.feature = new Feature(null, 0, null, true, false);
+    $scope.cleanQualitativeForm = function (qualitative) {
+        qualitative.name = null;
+        qualitative.value = null;
+    };
+
+    $scope.addFeature = function (feature) {
+        var newFeature = new Feature(feature.name, feature.weight, feature.isqualitative);
+        $scope.features.push(newFeature);
+        $scope.addFeaturesToOptions(newFeature);
+        $scope.cleanFeatureForm(feature);
+    };
+
+    $scope.cleanFeatureForm = function (feature) {
+        feature.name = null;
+        feature.weight = null;
+        feature.isqualitative = false;
     };
 
     $scope.addFeaturesToOptions = function (feature) {
-        for (var option = 0; option < $scope.options.length; option++) {
-            var featureToAdd = angular.copy(feature);
-            $scope.options[option].features.push(featureToAdd);
+        if ($scope.options.length) {
+            for (var option = 0; option < $scope.options.length; option++) {
+                var newFeature = new Feature(feature.name, feature.weight, feature.isqualitative);
+                $scope.options[option].features.push(newFeature);
+            }
         }
     };
 
-    $scope.addOption = function () {
-        var newFeature = angular.copy(this.features);
-        $scope.option.features = newFeature;
-        $scope.options.push($scope.option);
-        $scope.matrix.options = this.options;
-        this.option = new Option(null, null, true);
+    $scope.addOption = function (option) {
+        var newFeatures = $scope.features.slice();
+        var newOption = new Option(option.name, newFeatures);
+        $scope.options.push(newOption);
+        $scope.cleanOptionForm(option);
+    };
+
+    $scope.cleanOptionForm = function (option) {
+        option.name = null;
     };
 
     $scope.deleteFeature = function (index) {
@@ -99,18 +108,12 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
 
     $scope.isWinnerOption = function (option) {
         return (option.weightedSumOfFeatures() >0 && option.weightedSumOfFeatures() == $scope.returnWiningOption() && option.weightedSumOfFeatures() >= this.settings.minAcceptedValue);
-    };
-
     $scope.isApprovedOption = function (option) {
         return (option.weightedSumOfFeatures() >= this.settings.minAcceptedValue) ? "check" : "times";
     };
 
-    $scope.cancelOption = function () {
-        this.option = new Option(null, null, true);
-    };
-
-    $scope.cancelFeature = function () {
-        this.feature = new Feature(null, 0, null, true, false);
+    $scope.cancelFeature = function (feature) {
+        cleanFeatureForm(feature);
     };
 
     $scope.toggled = function (open) {
