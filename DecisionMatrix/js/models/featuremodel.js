@@ -6,12 +6,12 @@ function Feature() {
     this.isqualitative = false;
 }
 
-function Feature(name, value, weight, visible, isqualitative)
+function Feature(name, weight, isqualitative)
 {
 	this.name = name;
-	this.value = value;
+	this.value = null;
 	this.weight = weight;
-	this.visible = visible;
+	this.visible = true;
 	this.isqualitative = isqualitative;
 }
 
@@ -35,12 +35,7 @@ Feature.prototype.weightedSum = function () {
         this.weight = 1;
     }
     if (this.value) {
-        if (this.isqualitative) {
-            weightedSum += this.value.value * this.weight;
-        }
-        else {
-            weightedSum += this.value * this.weight;
-        }
+        weightedSum += this.getValue() * this.weight;
     }
     return weightedSum;
 };

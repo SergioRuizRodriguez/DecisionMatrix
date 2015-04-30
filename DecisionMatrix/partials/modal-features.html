@@ -16,7 +16,7 @@
         <a class="open-card-composer js-open-card-composer" href="#" ng-click="advanceFeature =((advanceFeature) ? false : true)">{{((advanceFeature) ? 'Less' : 'More')}} options…</a>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="addFeature()" ng-disabled="featureForm.$invalid">Add</button>
-        <input class="btn btn-warning" type="button" ng-click="cancelFeature(); advanceFeature = false;" value="Cancel" />
+        <button class="btn btn-primary" ng-click="addFeature(feature)" ng-disabled="featureForm.$invalid">Add</button>
+        <input class="btn btn-warning" type="button" ng-click="cancelFeature(feature); advanceFeature = false;" value="Cancel" />
     </div>
 </form>
