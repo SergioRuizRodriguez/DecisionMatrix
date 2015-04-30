@@ -24,7 +24,7 @@
         <strong>Sum</strong>
     </div>
     <div class="col-md-2 col-bottom-left animate" ng-class="{'bg-winner' : (returnWiningOption() > 0) ? (option.weightedSum == returnWiningOption() && option.weightedSum >= settings.minAcceptedValue) : false}" ng-repeat=" option in options" ng-show="option.visible">
-        <input type="number" readonly class="matrix-control" value="{{calculateSumForFeatures($index)|number:2}}" />
+        <input type="number" readonly class="matrix-control" value="{{option.sumOfFeatures()|number:2}}" />
     </div>
 </div>
 <div class="row row-eq-height row-matrix-divider" ng-show="settings.DisplayWeight">
@@ -32,7 +32,7 @@
         <strong>Weigth</strong>
     </div>
     <div class="col-md-2 col-bottom-left" ng-class="{'bg-winner' : (returnWiningOption() > 0) ? (option.weightedSum == returnWiningOption() && option.weightedSum >= settings.minAcceptedValue) : false}" ng-repeat="option in options" ng-show="option.visible">
-        <input type="number" readonly class="matrix-control" value="{{calculateSumForFeatures($index)|number:2}}" />
+        <input type="number" readonly class="matrix-control" value="{{option.weightedSumOfFeatures()|number:2}}" />
     </div>
 </div>
 <div class="row row-eq-height row-matrix-divider" ng-show="settings.DisplayStatus">

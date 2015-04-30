@@ -76,7 +76,7 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
     $scope.toggleVisibilityFeature = function(index)
     {
         $scope.features[index].visible = false;
-        for(var option = 0; option < $scope.options.length; option ++)
+        for(var option = 0; option < $scope.options.length; option++)
         {
             $scope.options[option].features[index].visible = false;
         }
