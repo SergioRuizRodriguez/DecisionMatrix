@@ -104,10 +104,10 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         return maxWeight;
     };
 
-  
-
     $scope.isWinnerOption = function (option) {
-        return (option.weightedSumOfFeatures() >0 && option.weightedSumOfFeatures() == $scope.returnWiningOption() && option.weightedSumOfFeatures() >= this.settings.minAcceptedValue);
+        return (option.weightedSumOfFeatures() > 0 && option.weightedSumOfFeatures() == $scope.returnWiningOption() && option.weightedSumOfFeatures() >= this.settings.minAcceptedValue);
+    };
+
     $scope.isApprovedOption = function (option) {
         return (option.weightedSumOfFeatures() >= this.settings.minAcceptedValue) ? "check" : "times";
     };
