@@ -86,7 +86,7 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         var maxWeight = 0;
         for(var option = 0; option < $scope.options.length; option++)
         {
-            var sumOfFeatures = $scope.calculateTotalWeightForFeatures(option);
+            var sumOfFeatures = $scope.options[option].weightedSumOfFeatures();
             if (maxWeight < sumOfFeatures)
             {
                 maxWeight = sumOfFeatures;
@@ -95,52 +95,14 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         return maxWeight;
     };
 
-    $scope.calculateSumsForOptions = function () {
-        for (var option = 0; option < $scope.options.length; option++) {
-            $scope.calculateSumForFeatures(option);
-        }
+  
+
+    $scope.isWinnerOption = function (option) {
+        return (option.weightedSumOfFeatures() >0 && option.weightedSumOfFeatures() == $scope.returnWiningOption() && option.weightedSumOfFeatures() >= this.settings.minAcceptedValue);
     };
 
-    $scope.calculateSumForFeatures = function (option) {
-        var featuresToSum = $scope.options[option].features;
-        var sumOfFeatures = 0;
-        if(featuresToSum)
-        {
-            for (var feature = 0; feature < featuresToSum.length; feature++) {
-                if(featuresToSum[feature].value)
-                {
-                    if (featuresToSum[feature].isqualitative) {
-                        sumOfFeatures += featuresToSum[feature].value.value;
-                    }
-                    else {
-                        sumOfFeatures += featuresToSum[feature].value;
-                    }
-                }
-            }
-        }
-        return sumOfFeatures;
-    };
-
-    $scope.calculateTotalWeightForFeatures = function (option) {
-        var featuresToSum = $scope.options[option].features;
-        var sumOfTotalWeightForFeatures = 0;
-        if (featuresToSum) {
-            for (var feature = 0; feature < featuresToSum.length; feature++) {
-                if (!featuresToSum[feature].weight) {
-                    featuresToSum[feature].weight = 1;
-                }
-                if (featuresToSum[feature].value) {
-                    if (featuresToSum[feature].isqualitative) {
-                        sumOfTotalWeightForFeatures += featuresToSum[feature].value.value * featuresToSum[feature].weight;
-                    }
-                    else {
-                        sumOfTotalWeightForFeatures += featuresToSum[feature].value * featuresToSum[feature].weight;
-                    }
-                }
-            }
-            $scope.options[option].weightedSum = sumOfTotalWeightForFeatures;
-        }
-        return sumOfTotalWeightForFeatures;
+    $scope.isApprovedOption = function (option) {
+        return (option.weightedSumOfFeatures() >= this.settings.minAcceptedValue) ? "check" : "times";
     };
 
     $scope.cancelOption = function () {
@@ -156,7 +118,7 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
     };
 
     $scope.toggleDropdown = function ($event) {
-        if(!$event.srcElement.type) {
+        if (!$event.srcElement.type && $event.srcElement.localName!='label') {
             $event.preventDefault();
             $event.stopPropagation();
         } else {

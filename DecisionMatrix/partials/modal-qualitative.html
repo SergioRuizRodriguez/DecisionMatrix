@@ -6,12 +6,12 @@
     <form name="newQualitativeForm" class="form-validation" ng-if="newQualitative">
         <div class="modal-body">
             <div class="form-group">
-                <label for="qualitativeModalContent">Name:</label>
-                <input type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="qualitative.name">
+                <label for="qualitativeName">Name:</label>
+                <input id="qualitativeName" type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="qualitative.name">
             </div>
             <div class="form-group">
-                <label for="qualitativeModalContent">Value:</label>
-                <input type="number" class="form-control" required min="{{settings.minValue}}" max="{{settings.maxValue}}" placeholder="Enter Value" ng-model="qualitative.value">
+                <label for="qualitativeValue">Value:</label>
+                <input id="qualitativeValue" type="number" class="form-control" required min="{{settings.minValue}}" max="{{settings.maxValue}}" placeholder="Enter Value" ng-model="qualitative.value">
             </div>
         </div>
         <div class="modal-footer">

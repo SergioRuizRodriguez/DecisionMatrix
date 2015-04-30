@@ -4,8 +4,8 @@
         <form name="newShowOptionsForm" class="form-validation container-fluid" ng-if="showOption && options.length > 0">
             <strong class="second-line">Alternatives</strong>
             <div class="checkbox" ng-repeat="option in options">
-                <label>
-                    <input type="checkbox" ng-model="option.visible" /> {{option.name}}
+                <label for="optionVisible" >
+                    <input id="optionVisible" type="checkbox" ng-model="option.visible" /> {{option.name}}
                 </label>
             </div>
         </form>
@@ -15,8 +15,8 @@
         <form name="newShowFeaturesForm" class="form-validation container-fluid" ng-if="showFeature && features.length > 0">
             <strong class="second-line">Criterias</strong>
             <div class="checkbox" ng-repeat="feature in features">
-                <label>
-                    <input type="checkbox" ng-model="feature.visible" /> {{feature.name}}
+                <label for="featureVisible">
+                    <input id="featureVisible" type="checkbox" ng-model="feature.visible" /> {{feature.name}}
                 </label>
             </div>
         </form>
