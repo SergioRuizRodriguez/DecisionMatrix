@@ -1,126 +1,62 @@
 'use strict';
 
-decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function ($scope, $modal) {
+decisionMatrixApp.controller('MatrixController', ['$scope', 'DecisionMatrixService', MatrixController]);
 
-    $scope.newQualitative = false;
+function MatrixController($scope, DecisionMatrixService) {
 
-    $scope.features = [];
+    this.features = DecisionMatrixService.getFeatures();
+    this.options = DecisionMatrixService.getOptions();
+    this.qualitativeOptions = DecisionMatrixService.getQualitativeOptions();
+    this.settings = DecisionMatrixService.getSettings();
+    this.newQualitative = DecisionMatrixService.isNewQualitative();
 
-    $scope.options = [];
-
-    $scope.qualitativeOptions = [new QualitativeOption('Good', 5),
-                                new QualitativeOption('Regular', 3),
-                                new QualitativeOption('Bad', 1)];
-
-    $scope.settings = {
-        "minValue": 0, "maxValue": 5,
-        "minAcceptedValue": 0, "DisplaySum": true,
-        "DisplayWeight": false, 'DisplayStatus': true
+    this.addQualitativeOption = function () {
+        var newQualitativeOption = new QualitativeOption($scope.qualitativeName, $scope.qualitativeValue);
+        DecisionMatrixService.addQualitativeOption(newQualitativeOption);
+        this.cleanQualitativeForm();
+        DecisionMatrixService.modifyNewQualitativeFlag(false);
     };
 
-    $scope.addQualitativeOption = function (qualitative) {
-        var newQualitativeOption = new QualitativeOption(qualitative.name, qualitative.value);
-        $scope.qualitativeOptions.push(newQualitativeOption);
-        $scope.cleanQualitativeForm();
-        $scope.newQualitative = false;
+    this.cleanQualitativeForm = function () {
+        $scope.qualitativeName = null;
+        $scope.qualitativeValue = null;
     };
 
-    $scope.cleanQualitativeForm = function (qualitative) {
-        qualitative.name = null;
-        qualitative.value = null;
+    this.addFeature = function () {
+        var newFeature = new Feature($scope.featureName, $scope.featureWeight, $scope.isQualitative);
+        DecisionMatrixService.addFeature(newFeature);
+        this.cleanFeatureForm();
     };
 
-    $scope.addFeature = function (feature) {
-        var newFeature = new Feature(feature.name, feature.weight, feature.isqualitative);
-        $scope.features.push(newFeature);
-        $scope.addFeaturesToOptions(newFeature);
-        $scope.cleanFeatureForm(feature);
+    this.cleanFeatureForm = function () {
+        $scope.featureName = null;
+        $scope.featureWeight = null;
+        $scope.isQualitative = false;
     };
 
-    $scope.cleanFeatureForm = function (feature) {
-        feature.name = null;
-        feature.weight = null;
-        feature.isqualitative = false;
+    this.addOption = function () {
+        var newFeatures = DecisionMatrixService.getFeatures().slice();
+        var newOption = new Option($scope.optionName, newFeatures);
+        DecisionMatrixService.addOption(newOption);
+        this.cleanOptionForm();
     };
 
-    $scope.addFeaturesToOptions = function (feature) {
-        if ($scope.options.length) {
-            for (var option = 0; option < $scope.options.length; option++) {
-                var newFeature = new Feature(feature.name, feature.weight, feature.isqualitative);
-                $scope.options[option].features.push(newFeature);
-            }
-        }
+    this.cleanOptionForm = function () {
+        $scope.optionName = null;
     };
 
-    $scope.addOption = function (option) {
-        var newFeatures = $scope.features.slice();
-        var newOption = new Option(option.name, newFeatures);
-        $scope.options.push(newOption);
-        $scope.cleanOptionForm(option);
+    this.deleteFeature = function () {
+        DecisionMatrixService.deleteFeature($scope.feature);
     };
 
-    $scope.cleanOptionForm = function (option) {
-        option.name = null;
-    };
-
-    $scope.deleteFeature = function (index) {
-        if ($scope.options.length) {
-            $scope.deleteFeaturesInOptions(index);
-        }
-        $scope.features.splice(index, 1);
-    };
-
-    $scope.deleteFeaturesInOptions = function (index) {
-        for (var option = 0; option < $scope.options.length; option++) {
-            if ($scope.options[option].features.length) {
-                $scope.options[option].features.splice(index, 1);
-            }
-        }
-    };
-
-    $scope.deleteOption = function (index) {
-        $scope.options.splice(index, 1);
-    };
-
-    $scope.toggleVisibilityFeature = function(index)
-    {
-        $scope.features[index].visible = false;
-        for(var option = 0; option < $scope.options.length; option++)
-        {
-            $scope.options[option].features[index].visible = false;
-        }
+    this.toggleVisibilityFeature = function () {
     }
 
-    $scope.returnWiningOption = function () {
-        var maxWeight = 0;
-        for(var option = 0; option < $scope.options.length; option++)
-        {
-            var sumOfFeatures = $scope.options[option].weightedSumOfFeatures();
-            if (maxWeight < sumOfFeatures)
-            {
-                maxWeight = sumOfFeatures;
-            }
-        }
-        return maxWeight;
+    this.cancelFeature = function () {
+        cleanFeatureForm();
     };
 
-    $scope.isWinnerOption = function (option) {
-        return (option.weightedSumOfFeatures() > 0 && option.weightedSumOfFeatures() == $scope.returnWiningOption() && option.weightedSumOfFeatures() >= this.settings.minAcceptedValue);
-    };
-
-    $scope.isApprovedOption = function (option) {
-        return (option.weightedSumOfFeatures() >= this.settings.minAcceptedValue) ? "check" : "times";
-    };
-
-    $scope.cancelFeature = function (feature) {
-        cleanFeatureForm(feature);
-    };
-
-    $scope.toggled = function (open) {
-        
-    };
-
-    $scope.toggleDropdown = function ($event) {
+    this.toggleDropdown = function ($event) {
         if (!$event.srcElement.type && $event.srcElement.localName!='label') {
             $event.preventDefault();
             $event.stopPropagation();
@@ -129,7 +65,8 @@ decisionMatrixApp.controller('MatrixController', ['$scope', '$modal', function (
         }
     };
 
-    $scope.closeNewQualitative = function () {
-        $scope.newQualitative = false;
+    this.closeNewQualitative = function () {
+        this.newQualitative = false;
     };
-}]);
+
+}

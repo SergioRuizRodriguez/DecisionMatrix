@@ -24,7 +24,7 @@ decisionMatrixApp.service('DecisionMatrixService', function () {
                 options[i].features.splice(index, 1);
             }
         }
-    };
+    }
 
     function addFeaturesToOptions(newFeature) {
         if (options.length) {
