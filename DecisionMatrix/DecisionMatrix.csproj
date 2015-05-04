@@ -58,9 +58,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\app.css" />
+    <Content Include="font-awesome-4.3.0\css\font-awesome.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\css\font-awesome.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\fonts\fontawesome-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="img\eye.png" />
     <Content Include="img\list.png" />
+    <Content Include="img\settings.png" />
     <Content Include="img\tools.png" />
+    <Content Include="index.html" />
     <Content Include="js\app.js" />
     <Content Include="js\components\directives\decisionmatrix.js" />
     <Content Include="js\components\directives\modals.js" />
@@ -77,15 +88,18 @@
     </Content>
     <Content Include="js\models\optionmodel.js" />
     <Content Include="js\models\qualitativemodel.js" />
+    <Content Include="lib\angular-animate.min.js" />
     <Content Include="lib\angular-sanitize.min.js" />
     <Content Include="lib\angular.min.js" />
     <Content Include="lib\ui-bootstrap-tpls-0.12.1.js" />
     <Content Include="css\bootstrap.css" />
-    <Content Include="partials\decision-matrix.html" />
     <Content Include="partials\horizontal-decision-matrix.html" />
     <Content Include="partials\modal-features.html" />
     <Content Include="partials\modal-options.html" />
+    <Content Include="partials\modal-qualitative.html" />
     <Content Include="partials\modal-settings.html" />
+    <Content Include="partials\modal-show-hide.html" />
+    <Content Include="partials\vertical-decision-matrix.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +109,101 @@
     <Content Include="lib\angular.min.js.map" />
     <Content Include="lib\angular-sanitize.min.js.map" />
     <Content Include="css\bootstrap.css.map" />
+    <Content Include="font\CFPunkisnotDead-Regular.ttf" />
+    <Content Include="font\KaushanScript-Regular.otf" />
+    <Content Include="font-awesome-4.3.0\fonts\fontawesome-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\fonts\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\fonts\fontawesome-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\fonts\fontawesome-webfont.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\fonts\FontAwesome.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\animated.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\bordered-pulled.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\core.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\fixed-width.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\font-awesome.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\icons.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\larger.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\list.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\mixins.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\path.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\rotated-flipped.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\stacked.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\less\variables.less">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\font-awesome.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_animated.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_bordered-pulled.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_core.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_fixed-width.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_icons.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_larger.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_list.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_mixins.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_path.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_rotated-flipped.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_stacked.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome-4.3.0\scss\_variables.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
