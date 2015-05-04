@@ -12,21 +12,17 @@ function Option(name, features)
 }
 
 Option.prototype.sumOfFeatures = function () {
-    var sumOfFeatures = 0;
-    if (this.features) {
-        for (var feature = 0; feature < this.features.length; feature++) {
-            sumOfFeatures += this.features[feature].getValue();
-        }
-    }
+var sumOfFeatures = 0;
+    _.each(this.features, function (feature) {
+        sumOfFeatures += feature.getValue();
+    });
     return sumOfFeatures;
 };
 
-Option.prototype.weightedSumOfFeatures = function() {
+Option.prototype.weightedSumOfFeatures = function () {
     var sumOfTotalWeightForFeatures = 0;
-    if (this.features) {
-        for (var feature = 0; feature < this.features.length; feature++) {
-            sumOfTotalWeightForFeatures += this.features[feature].weightedSum();
-        }
-    }
+    _.each(this.features, function (feature) {
+        sumOfTotalWeightForFeatures += feature.weightedSum();
+    });
     return sumOfTotalWeightForFeatures;
 };
