@@ -61,14 +61,13 @@
     <Content Include="img\eye.png" />
     <Content Include="img\list.png" />
     <Content Include="img\tools.png" />
+    <Content Include="index.html" />
     <Content Include="js\app.js" />
     <Content Include="js\components\directives\decisionmatrix.js" />
     <Content Include="js\components\directives\modals.js" />
-    <Content Include="js\controllers\featuremodalinstancecontroller.js" />
+    <Content Include="js\controllers\featurescontroller.js" />
     <Content Include="js\controllers\matrixcontroller.js" />
-    <Content Include="js\controllers\optionmodalinstancecontroller.js" />
-    <Content Include="js\controllers\qualitativemodalinstancecontroller.js" />
-    <Content Include="js\controllers\settingmodalinstancecontroller.js" />
+    <Content Include="js\controllers\optionscontroller.js" />
     <Content Include="js\models\featuremodel.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -77,15 +76,18 @@
     </Content>
     <Content Include="js\models\optionmodel.js" />
     <Content Include="js\models\qualitativemodel.js" />
+    <Content Include="js\services\decisionmatrixservice.js" />
     <Content Include="lib\angular-sanitize.min.js" />
     <Content Include="lib\angular.min.js" />
     <Content Include="lib\ui-bootstrap-tpls-0.12.1.js" />
     <Content Include="css\bootstrap.css" />
-    <Content Include="partials\decision-matrix.html" />
     <Content Include="partials\horizontal-decision-matrix.html" />
     <Content Include="partials\modal-features.html" />
     <Content Include="partials\modal-options.html" />
+    <Content Include="partials\modal-qualitative.html" />
     <Content Include="partials\modal-settings.html" />
+    <Content Include="partials\modal-show-hide.html" />
+    <Content Include="partials\vertical-decision-matrix.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
