@@ -1,22 +1,22 @@
 ﻿<form name="featureForm" class="form-dropdown-menu form-validation">
-    <div class="modal-body" ng-click="toggleDropdown($event)" ng-init="advanceFeature = false">
+    <div class="modal-body" ng-click="MatrixCtrl.toggleDropdown($event)" ng-init="advanceFeature = false">
         <div class="form-group">
             <label for="featureName">Name:</label>
-            <input id="featureName" type="text" class="form-control" autofocus required placeholder="Enter Name" focus-me="focusFeatureModal" ng-model="feature.name">
+            <input id="featureName" type="text" class="form-control" autofocus required placeholder="Enter Name" focus-me="focusFeatureModal" ng-model="featureName">
         </div>
-        <div class="form-group" ng-if="advanceFeature">
+        <div class="form-group" ng-show="advanceFeature">
             <label for="featureWeight">Weight:</label>
-            <input id="featureWeight" type="number" class="form-control" placeholder="Enter Weight" ng-model="feature.weight" />
+            <input id="featureWeight" type="number" class="form-control" placeholder="Enter Weight" ng-model="featureWeight" />
         </div>
-        <div class="checkbox" ng-if="advanceFeature">
+        <div class="checkbox" ng-show="advanceFeature">
             <label for="featureIsqualitative">
-                <input id="featureIsqualitative" type="checkbox" ng-model="feature.isqualitative" /> Qualitative
+                <input id="featureIsqualitative" type="checkbox" ng-model="isQualitative" /> Qualitative
             </label>
         </div>
         <a class="open-card-composer js-open-card-composer" href="#" ng-click="advanceFeature =((advanceFeature) ? false : true)">{{((advanceFeature) ? 'Less' : 'More')}} options…</a>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="addFeature(feature)" ng-disabled="featureForm.$invalid">Add</button>
-        <input class="btn btn-warning" type="button" ng-click="cancelFeature(feature); advanceFeature = false;" value="Cancel" />
+        <button class="btn btn-primary" ng-click="MatrixCtrl.addFeature()" ng-disabled="featureForm.$invalid">Add</button>
+        <input class="btn btn-warning" type="button" ng-click="MatrixCtrl.cancelFeature(); advanceFeature = false;" value="Cancel" />
     </div>
 </form>

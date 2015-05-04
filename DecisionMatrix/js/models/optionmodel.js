@@ -30,7 +30,3 @@ Option.prototype.weightedSumOfFeatures = function() {
     }
     return sumOfTotalWeightForFeatures;
 };
-
-/*Option.prototype.isWinner = function (option) {
-  
-};*/

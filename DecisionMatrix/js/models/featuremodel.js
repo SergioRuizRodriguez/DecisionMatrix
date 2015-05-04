@@ -3,21 +3,21 @@ function Feature() {
     this.value = null;
     this.weight = null;
     this.visible = true;
-    this.isqualitative = false;
+    this.isQualitative = false;
 }
 
-function Feature(name, weight, isqualitative)
+function Feature(name, weight, isQualitative)
 {
 	this.name = name;
 	this.value = null;
 	this.weight = weight;
 	this.visible = true;
-	this.isqualitative = isqualitative;
+	this.isQualitative = isQualitative;
 }
 
 Feature.prototype.getValue = function () {
     if (this.value){
-        if (this.isqualitative) {
+        if (this.isQualitative) {
             return this.value.value;
         }
         else {

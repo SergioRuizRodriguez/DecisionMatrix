@@ -1,12 +1,12 @@
 ﻿<form name="optionForm" class="form-dropdown-menu form-validation">
-    <div class="modal-body" ng-click="toggleDropdown($event)">
+    <div class="modal-body" ng-click="MatrixCtrl.toggleDropdown($event)">
         <div class="form-group">
             <label for="optionName" class="option-label-color">Name:</label>
-            <input id="optionName" type="text" class="form-control" focus-me="focusOptionModal" required placeholder="Enter Name" ng-model="option.name">
+            <input id="optionName" type="text" class="form-control" focus-me="focusOptionModal" required placeholder="Enter Name" ng-model="optionName">
         </div>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="addOption(option)" ng-disabled="optionForm.$invalid">Add</button>
-        <input class="btn btn-warning" type="button" ng-click="cancelOption(option)" value="Cancel" />
+        <button class="btn btn-primary" ng-click="MatrixCtrl.addOption()" ng-disabled="optionForm.$invalid">Add</button>
+        <input class="btn btn-warning" type="button" ng-click="MatrixCtrl.cancelOption()" value="Cancel" />
     </div>
 </form>
