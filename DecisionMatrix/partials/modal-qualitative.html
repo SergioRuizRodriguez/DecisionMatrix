@@ -1,23 +1,23 @@
-﻿<div class="form-dropdown-menu modal-body" ng-click="toggleDropdown($event)">
+﻿<div class="form-dropdown-menu modal-body" ng-click="MatrixCtrl.toggleDropdown($event)">
     <strong>Qualitative Options list</strong>
     <ul>
-        <li ng-repeat="qualitativeOption in qualitativeOptions | orderBy: '-value' ">{{qualitativeOption.name}} - ({{qualitativeOption.value}})
+        <li ng-repeat="qualitativeOption in MatrixCtrl.qualitativeOptions | orderBy: '-value' ">{{qualitativeOption.name}} - ({{qualitativeOption.value}})
     </ul>
-    <form name="newQualitativeForm" class="form-validation" ng-if="newQualitative">
+    <form name="newQualitativeForm" class="form-validation" ng-show="MatrixCtrl.newQualitative">
         <div class="modal-body">
             <div class="form-group">
                 <label for="qualitativeName">Name:</label>
-                <input id="qualitativeName" type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="qualitative.name">
+                <input id="qualitativeName" type="text" class="form-control" autofocus required placeholder="Enter Name" ng-model="qualitativeName">
             </div>
             <div class="form-group">
                 <label for="qualitativeValue">Value:</label>
-                <input id="qualitativeValue" type="number" class="form-control" required min="{{settings.minValue}}" max="{{settings.maxValue}}" placeholder="Enter Value" ng-model="qualitative.value">
+                <input id="qualitativeValue" type="number" class="form-control" required min="{{MatrixCtrl.settings.minValue}}" max="{{MatrixCtrl.settings.maxValue}} placeholder=" enter value" ng-model="qualitativeValue">
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="addQualitativeOption()" ng-disabled="newQualitativeForm.$invalid">Add</button>
-            <input class="btn btn-default" type="button" ng-click="closeNewQualitative()" value="Cancel" />
+            <button class="btn btn-primary" ng-click="MatrixCtrl.addQualitativeOption()" ng-disabled="newQualitativeForm.$invalid">Add</button>
+            <input class="btn btn-default" type="button" ng-click="MatrixCtrl.closeNewQualitative()" value="Cancel" />
         </div>
     </form>
-    <a class="open-card-composer js-open-card-composer" href="#" ng-click="newQualitative = true" ng-hide="newQualitative">Add Qualitative Option…</a>
+    <a class="open-card-composer js-open-card-composer" href="#" ng-click="MatrixCtrl.newQualitative = true" ng-hide="MatrixCtrl.newQualitative">Add Qualitative Option…</a>
 </div>

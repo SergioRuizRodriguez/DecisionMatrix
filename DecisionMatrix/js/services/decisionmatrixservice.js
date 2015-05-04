@@ -19,32 +19,24 @@ decisionMatrixApp.service('DecisionMatrixService', function () {
     };
 
     function deleteFeaturesFromOptions(index) {
-        for (var i = 0; i < options.length; i++) {
-            if (options[i].features.length) {
-                options[i].features.splice(index, 1);
-            }
-        }
+        _.each(options, function (option) {
+            option.features.splice(index, 1);
+        });
     }
 
     function addFeaturesToOptions(newFeature) {
-        if (options.length) {
-            for (var i = 0; i < options.length; i++) {
-                var newFeatureCopy = new Feature(newFeature.name, newFeature.weight, newFeature.isQualitative);
-                options[i].features.push(newFeatureCopy);
-            }
-        }
+       _.each(options,function(option){
+            var newFeatureCopy = new Feature(newFeature.name, newFeature.weight, newFeature.isQualitative);
+            option.features.push(newFeatureCopy);
+        });
     }
 
     function returnWiningOption() {
         var maxWeight = 0;
-        for (var i = 0; i < options.length; i++)
-        {
-            var sumOfFeatures = options[i].weightedSumOfFeatures();
-            if (maxWeight < sumOfFeatures)
-            {
-                maxWeight = sumOfFeatures;
-            }
-        }
+        _.each(options, function (option) {
+            var sumOfFeatures = option.weightedSumOfFeatures();
+            maxWeight =Math.max(maxWeight, sumOfFeatures);
+        });
         return maxWeight;
     }
 
