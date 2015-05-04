@@ -2,45 +2,45 @@
     <div class="col-md-2 col-top">
         <strong class="col-md-offset-1">Alternatives</strong>
     </div>
-    <div class="col-md-2 col-top animate" ng-class="{'bg-winner' : OptionCtrl.isWinner()}" ng-repeat="option in MatrixCtrl.options" ng-controller="OptionsController as OptionCtrl" ng-init="indexOption = $index" ng-show="option.visible">
+    <div class="col-md-2 col-top animate" ng-class="{'bg-winner' : isWinnerOption(option)}" ng-repeat="option in options" ng-init="indexOption = $index" ng-show="option.visible">
         <strong>{{option.name}}</strong>
-        <button type="button" class="close" aria-label="Close" ng-click="OptionCtrl.deleteOption()"><i class="fa fa-trash icon-matrix"></i></button>
-        <button type="button" class="close" aria-label="Close" ng-click="OptionCtrl.toggleOptionVisibility()"><i class="fa fa-eye-slash icon-matrix"></i></button>
+        <button type="button" class="close" aria-label="Close" ng-click="deleteOption(indexOption)"><i class="fa fa-trash icon-matrix"></i></button>
+        <button type="button" class="close" aria-label="Close" ng-click="option.visible = false"><i class="fa fa-eye-slash icon-matrix"></i></button>
     </div>
 </div>
-<div class="row row-eq-height row-matrix-divider animate" ng-repeat="feature in MatrixCtrl.features track by $index" ng-controller="FeaturesController as FeatureCtrl" ng-show="feature.visible" ng-init="indexFeature = $index">
+<div class="row row-eq-height row-matrix-divider animate" ng-repeat="feature in features track by $index" ng-show="feature.visible" ng-init="indexFeature = $index">
     <div class="col-md-2 col-bottom-left">
         <strong>{{feature.name}}</strong>
-        <button type="button" class="close" aria-label="Close" ng-click="FeatureCtrl.deleteFeature()"><i class="fa fa-trash icon-matrix"></i></button>
-        <button type="button" class="close" aria-label="Close" ng-click="FeatureCtrl.toggleFeatureVisibility()"><i class="fa fa-eye-slash icon-matrix"></i></button>
+        <button type="button" class="close" aria-label="Close" ng-click="deleteFeature(indexFeature)"><i class="fa fa-trash icon-matrix"></i></button>
+        <button type="button" class="close" aria-label="Close" ng-click="toggleVisibilityFeature(indexFeature)"><i class="fa fa-eye-slash icon-matrix"></i></button>
     </div>
-    <div class="col-md-2 col-bottom-left matrix-validation animate" ng-class="{'bg-winner' : OptionCtrl.isWinner()}" ng-repeat="option in MatrixCtrl.options" ng-controller="OptionsController as OptionCtrl" ng-show="option.visible">
-        <select class="matrix-control" ng-class="{'bg-winner' : OptionCtrl.isWinner()}" ng-model="option.features[indexFeature].value" ng-show="option.features[indexFeature].isQualitative" ng-options="opt as opt.name for opt in MatrixCtrl.qualitativeOptions"></select>
-        <input type="number" class="matrix-control" min="{{MatrixCtrl.settings.minValue}}" max="{{MatrixCtrl.settings.maxValue}}" ng-model="option.features[indexFeature].value" ng-hide="option.features[indexFeature].isQualitative" />
+    <div class="col-md-2 col-bottom-left matrix-validation animate" ng-class="{'bg-winner' : isWinnerOption(option)}" ng-repeat="option in options" ng-show="option.visible">
+        <select class="matrix-control" ng-class="{'bg-winner' : isWinnerOption(option)" ng-model="option.features[indexFeature].value" ng-if="option.features[indexFeature].isqualitative" ng-options="opt as opt.name for opt in qualitativeOptions"></select>
+        <input type="number" class="matrix-control" min="{{settings.minValue}}" max="{{settings.maxValue}}" ng-model="option.features[indexFeature].value" ng-if="!option.features[indexFeature].isqualitative" />
     </div>
 </div>
-<div class="row row-eq-height row-matrix-divider" ng-show="MatrixCtrl.settings.DisplaySum">
+<div class="row row-eq-height row-matrix-divider" ng-show="settings.DisplaySum">
     <div class="col-md-2 col-bottom-left">
         <strong>Sum</strong>
     </div>
-    <div class="col-md-2 col-bottom-left animate" ng-class="{'bg-winner' : OptionCtrl.isWinner()}" ng-repeat="option in MatrixCtrl.options" ng-controller="OptionsController as OptionCtrl" ng-show="option.visible">
-        <input type="number" readonly class="matrix-control" value="{{option.sumOfFeatures()|number:2}}" />
-    </div>
-</div>
-<div class="row row-eq-height row-matrix-divider" ng-show="MatrixCtrl.settings.DisplayWeight">
-    <div class="col-md-2 col-bottom-left">
-        <strong>Weigth</strong>
-    </div>
-    <div class="col-md-2 col-bottom-left" ng-class="{'bg-winner' : OptionCtrl.isWinner()}" ng-repeat="option in MatrixCtrl.options" ng-controller="OptionsController as OptionCtrl" ng-show="option.visible">
+    <div class="col-md-2 col-bottom-left animate" ng-class="{'bg-winner' : isWinnerOption(option)}" ng-repeat=" option in options" ng-show="option.visible">
         <input type="number" readonly class="matrix-control" value="{{option.weightedSumOfFeatures()|number:2}}" />
     </div>
 </div>
-<div class="row row-eq-height row-matrix-divider" ng-show="MatrixCtrl.settings.DisplayStatus">
+<div class="row row-eq-height row-matrix-divider" ng-show="settings.DisplayWeight">
+    <div class="col-md-2 col-bottom-left">
+        <strong>Weigth</strong>
+    </div>
+    <div class="col-md-2 col-bottom-left" ng-class="{'bg-winner' : isWinnerOption(option)}" ng-repeat="option in options" ng-show="option.visible">
+        <input type="number" readonly class="matrix-control" value="{{option.weightedSumOfFeatures()|number:2}}" />
+    </div>
+</div>
+<div class="row row-eq-height row-matrix-divider" ng-show="settings.DisplayStatus">
     <div class="col-md-2 col-bottom-left">
         <strong>Status</strong>
     </div>
-    <div class="col-md-2 col-bottom-left text-center" ng-class="{'bg-winner' : OptionCtrl.isWinner()}" ng-repeat="option in MatrixCtrl.options" ng-controller="OptionsController as OptionCtrl" ng-show="option.visible">
-        <i class="fa" ng-class="'fa-' + OptionCtrl.isApproved() + '-circle'"></i>
+    <div class="col-md-2 col-bottom-left text-center" ng-class="{'bg-winner' : isWinnerOption(option)}" ng-repeat="option in options" ng-show="option.visible">
+        <i class="fa" ng-class="'fa-'+isApprovedOption(option)+'-circle'"></i>
 
     </div>
 </div>
