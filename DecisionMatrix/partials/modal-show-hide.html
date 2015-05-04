@@ -1,20 +1,20 @@
-﻿<div class="form-dropdown-menu modal-body" ng-click="toggleDropdown($event)" ng-init="showFeature = false; showOption = false">
+﻿<div class="form-dropdown-menu modal-body" ng-click="MatrixCtrl.toggleDropdown($event)" ng-init="showFeature = false; showOption = false">
     <div class="row">
-        <a class="open-card-composer js-open-card-composer" href="#" ng-click="showOption = ((showOption) ? false : true)" ng-show="options.length > 0">Alternatives…</a>
-        <form name="newShowOptionsForm" class="form-validation container-fluid" ng-if="showOption && options.length > 0">
+        <a class="open-card-composer js-open-card-composer" href="#" ng-click="showOption = ((showOption) ? false : true)" ng-show="MatrixCtrl.options.length > 0">Alternatives…</a>
+        <form name="newShowOptionsForm" class="form-validation container-fluid" ng-show="showOption && MatrixCtrl.options.length > 0">
             <strong class="second-line">Alternatives</strong>
-            <div class="checkbox" ng-repeat="option in options">
-                <label for="optionVisible" >
+            <div class="checkbox" ng-repeat="option in MatrixCtrl.options">
+                <label for="optionVisible">
                     <input id="optionVisible" type="checkbox" ng-model="option.visible" /> {{option.name}}
                 </label>
             </div>
         </form>
     </div>
     <div class="row second-line" ng-class="{'second-line-min' : showOption}">
-        <a class="open-card-composer js-open-card-composer" href="#" ng-click="showFeature = ((showFeature) ? false : true)" ng-show="features.length > 0">Criterias…</a>
-        <form name="newShowFeaturesForm" class="form-validation container-fluid" ng-if="showFeature && features.length > 0">
+        <a class="open-card-composer js-open-card-composer" href="#" ng-click="showFeature = ((showFeature) ? false : true)" ng-show="MatrixCtrl.features.length > 0">Criterias…</a>
+        <form name="newShowFeaturesForm" class="form-validation container-fluid" ng-show="showFeature && MatrixCtrl.features.length > 0">
             <strong class="second-line">Criterias</strong>
-            <div class="checkbox" ng-repeat="feature in features">
+            <div class="checkbox" ng-repeat="feature in MatrixCtrl.features">
                 <label for="featureVisible">
                     <input id="featureVisible" type="checkbox" ng-model="feature.visible" /> {{feature.name}}
                 </label>

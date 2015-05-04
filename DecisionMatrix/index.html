@@ -14,7 +14,7 @@
                 <h2 class="line-logo">DECISION MATRIX</h2>
             </div>
             <div class="btn-group btn-head col-xs-offset-4" dropdown is-open="statusShow.isopen">
-                <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle ng-show="options.length > 0 || features.length > 0">
+                <button type="button" class="dropdown-toggle btn btn-default btn-xs" dropdown-toggle ng-show="MatrixCtrl.options.length > 0 || MatrixCtrl.features.length > 0">
                     <i class="fa fa-eye dropdown-button" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip="Show|Hide Alternatives and Criterias"></i>
                     <span class="caret"></span>
                 </button>
@@ -59,6 +59,7 @@
     <script src="lib/ui-bootstrap-tpls-0.12.1.js"></script>
     <script src="lib/angular-animate.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/services/decisionmatrixservice.js"></script>
     <script src="js/controllers/matrixcontroller.js"></script>
     <script src="js/components/directives/decisionmatrix.js"></script>
     <script src="js/components/directives/modals.js"></script>
